@@ -1,0 +1,798 @@
+{
+  "bookmarked": false,
+  "createdAt": "2026-08-02T01:24:18.345Z",
+  "environment": "default",
+  "externalId": null,
+  "htmlPath": "/project/clickathon-project/traces/2669c5e55066fe4a208155070e8a57a7",
+  "id": "2669c5e55066fe4a208155070e8a57a7",
+  "input": null,
+  "latency": 23.536,
+  "metadata": {},
+  "name": "",
+  "observations": [
+    {
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "completionStartTime": null,
+      "completionTokens": 0,
+      "costDetails": {},
+      "createdAt": "2026-08-02T01:24:38.613Z",
+      "endTime": "2026-08-02T01:24:36.851Z",
+      "environment": "default",
+      "id": "b188c61a33657b61",
+      "input": null,
+      "inputPrice": 0,
+      "latency": 22.502,
+      "level": "DEFAULT",
+      "metadata": {
+        "resourceAttributes": {
+          "service.instance.id": "48e0d6d1-4fdc-4f77-aede-dbca09979ddd",
+          "service.name": "inmobi-rca-api",
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0"
+        },
+        "scope": {
+          "attributes": {
+            "public_key": "<redacted>"
+          },
+          "name": "langfuse-sdk",
+          "version": "4.14.2"
+        }
+      },
+      "model": null,
+      "modelId": null,
+      "modelParameters": null,
+      "name": "detect:compound",
+      "output": {
+        "novel_compound_findings": 0,
+        "top": []
+      },
+      "outputPrice": 0,
+      "parentObservationId": "a91ac8c6acc4e8f8",
+      "projectId": "clickathon-project",
+      "promptId": null,
+      "promptName": null,
+      "promptTokens": 0,
+      "promptVersion": null,
+      "startTime": "2026-08-02T01:24:14.349Z",
+      "statusMessage": null,
+      "timeToFirstToken": null,
+      "totalPrice": 0,
+      "totalTokens": 0,
+      "traceId": "2669c5e55066fe4a208155070e8a57a7",
+      "type": "SPAN",
+      "unit": "TOKENS",
+      "updatedAt": "2026-08-02T01:24:38.633Z",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "usageDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "version": null
+    },
+    {
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "completionStartTime": null,
+      "completionTokens": 0,
+      "costDetails": {},
+      "createdAt": "2026-08-02T01:24:18.332Z",
+      "endTime": "2026-08-02T01:24:14.018Z",
+      "environment": "default",
+      "id": "02ebc91416b1be14",
+      "input": {
+        "baseline_weeks": 4,
+        "window": [
+          "2026-07-06 00:00:00",
+          "2026-07-10 22:00:00"
+        ]
+      },
+      "inputPrice": 0,
+      "latency": 0.485,
+      "level": "DEFAULT",
+      "metadata": {
+        "resourceAttributes": {
+          "service.instance.id": "48e0d6d1-4fdc-4f77-aede-dbca09979ddd",
+          "service.name": "inmobi-rca-api",
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0"
+        },
+        "scope": {
+          "attributes": {
+            "public_key": "<redacted>"
+          },
+          "name": "langfuse-sdk",
+          "version": "4.14.2"
+        }
+      },
+      "model": null,
+      "modelId": null,
+      "modelParameters": null,
+      "name": "detect:segments",
+      "output": {
+        "metrics_checked": [
+          {
+            "max_abs_z": 118.95,
+            "metric": "revenue",
+            "query_ms": 123.3,
+            "rows_read": 122880,
+            "scan": "segment",
+            "segment_hours_examined": 6702,
+            "segment_hours_flagged": 4607,
+            "verdict": "anomalous"
+          },
+          {
+            "max_abs_z": 107.95,
+            "metric": "requests",
+            "query_ms": 66.6,
+            "rows_read": 122880,
+            "scan": "segment",
+            "segment_hours_examined": 6702,
+            "segment_hours_flagged": 4828,
+            "verdict": "anomalous"
+          },
+          {
+            "max_abs_z": 44.44,
+            "metric": "fill_rate",
+            "query_ms": 64.5,
+            "rows_read": 122880,
+            "scan": "segment",
+            "segment_hours_examined": 6702,
+            "segment_hours_flagged": 552,
+            "verdict": "anomalous"
+          },
+          {
+            "max_abs_z": 18.59,
+            "metric": "ecpm",
+            "query_ms": 65,
+            "rows_read": 122880,
+            "scan": "segment",
+            "segment_hours_examined": 6702,
+            "segment_hours_flagged": 2917,
+            "verdict": "anomalous"
+          },
+          {
+            "max_abs_z": 5.06,
+            "metric": "ctr",
+            "query_ms": 67.5,
+            "rows_read": 122880,
+            "scan": "segment",
+            "segment_hours_examined": 6702,
+            "segment_hours_flagged": 51,
+            "verdict": "anomalous"
+          }
+        ],
+        "segment_hours_flagged": 12955
+      },
+      "outputPrice": 0,
+      "parentObservationId": "a91ac8c6acc4e8f8",
+      "projectId": "clickathon-project",
+      "promptId": null,
+      "promptName": null,
+      "promptTokens": 0,
+      "promptVersion": null,
+      "startTime": "2026-08-02T01:24:13.533Z",
+      "statusMessage": null,
+      "timeToFirstToken": null,
+      "totalPrice": 0,
+      "totalTokens": 0,
+      "traceId": "2669c5e55066fe4a208155070e8a57a7",
+      "type": "SPAN",
+      "unit": "TOKENS",
+      "updatedAt": "2026-08-02T01:24:18.374Z",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "usageDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "version": null
+    },
+    {
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "completionStartTime": null,
+      "completionTokens": 0,
+      "costDetails": {},
+      "createdAt": "2026-08-02T01:24:18.332Z",
+      "endTime": "2026-08-02T01:24:14.347Z",
+      "environment": "default",
+      "id": "cc1c1edca32a0935",
+      "input": {
+        "factor": "ecpm",
+        "scope": "ad_format=video"
+      },
+      "inputPrice": 0,
+      "latency": 0.076,
+      "level": "DEFAULT",
+      "metadata": {
+        "resourceAttributes": {
+          "service.instance.id": "48e0d6d1-4fdc-4f77-aede-dbca09979ddd",
+          "service.name": "inmobi-rca-api",
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0"
+        },
+        "scope": {
+          "attributes": {
+            "public_key": "<redacted>"
+          },
+          "name": "langfuse-sdk",
+          "version": "4.14.2"
+        }
+      },
+      "model": null,
+      "modelId": null,
+      "modelParameters": null,
+      "name": "characterize",
+      "output": {
+        "duration_hours": 118,
+        "factor": "ecpm",
+        "held_steady": [
+          "fill_rate",
+          "render_rate"
+        ],
+        "onset": {
+          "after": 6.102399,
+          "aligns_to_day_boundary": true,
+          "at_hour": "2026-07-06 00:00:00",
+          "before": 6.520218,
+          "change": -0.417818,
+          "shape": "gradual",
+          "step_fraction": 0.3431
+        },
+        "reading": "ecpm moved gradually into the window, the largest single hour carrying 34% of the change \u2014 consistent with a rollout or progressive degradation rather than a single change; the change lands exactly on a day boundary, which points at something that schedules in days \u2014 a campaign flight, a config push, a nightly job \u2014 rather than an organic failure; it recovers gradually from 2026-07-10 23:00:00; meanwhile fill_rate, render_rate held steady through the window.",
+        "recovery": {
+          "after": 4.297747,
+          "aligns_to_day_boundary": false,
+          "at_hour": "2026-07-10 23:00:00",
+          "before": 4.126668,
+          "change": 0.171079,
+          "shape": "gradual",
+          "step_fraction": 0.1548
+        },
+        "rules_out": [],
+        "scope": "ad_format=video"
+      },
+      "outputPrice": 0,
+      "parentObservationId": "2221164c1c025c53",
+      "projectId": "clickathon-project",
+      "promptId": null,
+      "promptName": null,
+      "promptTokens": 0,
+      "promptVersion": null,
+      "startTime": "2026-08-02T01:24:14.271Z",
+      "statusMessage": null,
+      "timeToFirstToken": null,
+      "totalPrice": 0,
+      "totalTokens": 0,
+      "traceId": "2669c5e55066fe4a208155070e8a57a7",
+      "type": "SPAN",
+      "unit": "TOKENS",
+      "updatedAt": "2026-08-02T01:24:18.373Z",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "usageDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "version": null
+    },
+    {
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "completionStartTime": null,
+      "completionTokens": 0,
+      "costDetails": {},
+      "createdAt": "2026-08-02T01:24:18.332Z",
+      "endTime": "2026-08-02T01:24:14.348Z",
+      "environment": "default",
+      "id": "2221164c1c025c53",
+      "input": {
+        "seed": "country=AR",
+        "triggers": 615
+      },
+      "inputPrice": 0,
+      "latency": 0.19,
+      "level": "DEFAULT",
+      "metadata": {
+        "resourceAttributes": {
+          "service.instance.id": "48e0d6d1-4fdc-4f77-aede-dbca09979ddd",
+          "service.name": "inmobi-rca-api",
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0"
+        },
+        "scope": {
+          "attributes": {
+            "public_key": "<redacted>"
+          },
+          "name": "langfuse-sdk",
+          "version": "4.14.2"
+        }
+      },
+      "model": null,
+      "modelId": null,
+      "modelParameters": null,
+      "name": "event 2026-07-06 00:00:00 .. 2026-07-10 21:00:00",
+      "output": null,
+      "outputPrice": 0,
+      "parentObservationId": "a91ac8c6acc4e8f8",
+      "projectId": "clickathon-project",
+      "promptId": null,
+      "promptName": null,
+      "promptTokens": 0,
+      "promptVersion": null,
+      "startTime": "2026-08-02T01:24:14.158Z",
+      "statusMessage": null,
+      "timeToFirstToken": null,
+      "totalPrice": 0,
+      "totalTokens": 0,
+      "traceId": "2669c5e55066fe4a208155070e8a57a7",
+      "type": "SPAN",
+      "unit": "TOKENS",
+      "updatedAt": "2026-08-02T01:24:18.369Z",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "usageDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "version": null
+    },
+    {
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "completionStartTime": null,
+      "completionTokens": 0,
+      "costDetails": {},
+      "createdAt": "2026-08-02T01:24:18.332Z",
+      "endTime": "2026-08-02T01:24:14.203Z",
+      "environment": "default",
+      "id": "351adb1b59547735",
+      "input": {
+        "window": [
+          "2026-07-06 00:00:00",
+          "2026-07-10 21:00:00"
+        ]
+      },
+      "inputPrice": 0,
+      "latency": 0.045,
+      "level": "DEFAULT",
+      "metadata": {
+        "resourceAttributes": {
+          "service.instance.id": "48e0d6d1-4fdc-4f77-aede-dbca09979ddd",
+          "service.name": "inmobi-rca-api",
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0"
+        },
+        "scope": {
+          "attributes": {
+            "public_key": "<redacted>"
+          },
+          "name": "langfuse-sdk",
+          "version": "4.14.2"
+        }
+      },
+      "model": null,
+      "modelId": null,
+      "modelParameters": null,
+      "name": "decompose",
+      "output": {
+        "factors": [
+          {
+            "factor": "ecpm",
+            "pct_change": -0.0914,
+            "share_of_move": 4.4643
+          },
+          {
+            "factor": "requests",
+            "pct_change": 0.0859,
+            "share_of_move": -3.8379
+          },
+          {
+            "factor": "fill_rate",
+            "pct_change": -0.0079,
+            "share_of_move": 0.369
+          },
+          {
+            "factor": "render_rate",
+            "pct_change": -0.0001,
+            "share_of_move": 0.0047
+          }
+        ],
+        "identity_residual": 2.42861286636753e-17,
+        "primary_factor": "ecpm",
+        "revenue_pct_change": -0.0212
+      },
+      "outputPrice": 0,
+      "parentObservationId": "2221164c1c025c53",
+      "projectId": "clickathon-project",
+      "promptId": null,
+      "promptName": null,
+      "promptTokens": 0,
+      "promptVersion": null,
+      "startTime": "2026-08-02T01:24:14.158Z",
+      "statusMessage": null,
+      "timeToFirstToken": null,
+      "totalPrice": 0,
+      "totalTokens": 0,
+      "traceId": "2669c5e55066fe4a208155070e8a57a7",
+      "type": "SPAN",
+      "unit": "TOKENS",
+      "updatedAt": "2026-08-02T01:24:18.368Z",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "usageDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "version": null
+    },
+    {
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "completionStartTime": null,
+      "completionTokens": 0,
+      "costDetails": {},
+      "createdAt": "2026-08-02T01:24:18.332Z",
+      "endTime": "2026-08-02T01:24:14.271Z",
+      "environment": "default",
+      "id": "fc0aea357ed01c5c",
+      "input": {
+        "factor": "ecpm"
+      },
+      "inputPrice": 0,
+      "latency": 0.068,
+      "level": "DEFAULT",
+      "metadata": {
+        "resourceAttributes": {
+          "service.instance.id": "48e0d6d1-4fdc-4f77-aede-dbca09979ddd",
+          "service.name": "inmobi-rca-api",
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0"
+        },
+        "scope": {
+          "attributes": {
+            "public_key": "<redacted>"
+          },
+          "name": "langfuse-sdk",
+          "version": "4.14.2"
+        }
+      },
+      "model": null,
+      "modelId": null,
+      "modelParameters": null,
+      "name": "localize",
+      "output": {
+        "responsible": [
+          {
+            "dim_name": "ad_format",
+            "reason": "video moved -18.0% against -9.4% globally, carrying 100% of the unexplained movement and 29% of the whole incident",
+            "top_excess_of_total": 0.2861,
+            "top_excess_share": 1,
+            "top_value": "video",
+            "verdict": "responsible"
+          },
+          {
+            "dim_name": "os_version",
+            "reason": "Android 12 moved -17.2% against -9.3% globally, carrying 73% of the unexplained movement and 20% of the whole incident",
+            "top_excess_of_total": 0.2007,
+            "top_excess_share": 0.7297,
+            "top_value": "Android 12",
+            "verdict": "responsible"
+          },
+          {
+            "dim_name": "device_model",
+            "reason": "iPhone 14 moved -22.3% against -9.2% globally, carrying 66% of the unexplained movement and 18% of the whole incident",
+            "top_excess_of_total": 0.1842,
+            "top_excess_share": 0.6633,
+            "top_value": "iPhone 14",
+            "verdict": "responsible"
+          }
+        ],
+        "ruled_out": [
+          {
+            "dim_name": "region",
+            "reason": "NAM leads this dimension, but its excess is 0% of the unexplained movement, under the 50% concentration bar \u2014 the movement is spread across values, not concentrated in one",
+            "top_excess_of_total": 0.3554,
+            "top_excess_share": 0,
+            "top_value": "NAM",
+            "verdict": "inconclusive"
+          },
+          {
+            "dim_name": "country",
+            "reason": "US leads this dimension, but its excess is 0% of the unexplained movement, under the 50% concentration bar \u2014 the movement is spread across values, not concentrated in one",
+            "top_excess_of_total": 0.2362,
+            "top_excess_share": 0,
+            "top_value": "US",
+            "verdict": "inconclusive"
+          },
+          {
+            "dim_name": "publisher_tier",
+            "reason": "all 3 values moved together (every one within 0.5% of the global -9.1%); the largest outlier explains only 1.1% of the incident, so this dimension does not explain it",
+            "top_excess_of_total": 0.0115,
+            "top_excess_share": 0.6472,
+            "top_value": "tier_2",
+            "verdict": "uniform"
+          },
+          {
+            "dim_name": "category",
+            "reason": "all 7 values moved together (every one within 3.7% of the global -9.3%); the largest outlier explains only 0.8% of the incident, so this dimension does not explain it",
+            "top_excess_of_total": 0.0077,
+            "top_excess_share": 0.3537,
+            "top_value": "gaming",
+            "verdict": "uniform"
+          },
+          {
+            "dim_name": "campaign_type",
+            "reason": "all 4 values moved together (every one within 9.1% of the global -9.1%); the largest outlier explains only 0.6% of the incident, so this dimension does not explain it",
+            "top_excess_of_total": 0.0062,
+            "top_excess_share": 0.9644,
+            "top_value": "CPM",
+            "verdict": "uniform"
+          },
+          {
+            "dim_name": "vertical",
+            "reason": "all 8 values moved together (every one within 9.1% of the global -9.1%); the largest outlier explains only 0.3% of the incident, so this dimension does not explain it",
+            "top_excess_of_total": 0.0028,
+            "top_excess_share": 0.4485,
+            "top_value": "travel",
+            "verdict": "uniform"
+          }
+        ]
+      },
+      "outputPrice": 0,
+      "parentObservationId": "2221164c1c025c53",
+      "projectId": "clickathon-project",
+      "promptId": null,
+      "promptName": null,
+      "promptTokens": 0,
+      "promptVersion": null,
+      "startTime": "2026-08-02T01:24:14.203Z",
+      "statusMessage": null,
+      "timeToFirstToken": null,
+      "totalPrice": 0,
+      "totalTokens": 0,
+      "traceId": "2669c5e55066fe4a208155070e8a57a7",
+      "type": "SPAN",
+      "unit": "TOKENS",
+      "updatedAt": "2026-08-02T01:24:18.367Z",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "usageDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "version": null
+    },
+    {
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "completionStartTime": null,
+      "completionTokens": 0,
+      "costDetails": {},
+      "createdAt": "2026-08-02T01:24:18.332Z",
+      "endTime": "2026-08-02T01:24:14.123Z",
+      "environment": "default",
+      "id": "bfd112ab77aaa3cb",
+      "input": {
+        "raw_findings": 13095
+      },
+      "inputPrice": 0,
+      "latency": 0.105,
+      "level": "DEFAULT",
+      "metadata": {
+        "resourceAttributes": {
+          "service.instance.id": "48e0d6d1-4fdc-4f77-aede-dbca09979ddd",
+          "service.name": "inmobi-rca-api",
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0"
+        },
+        "scope": {
+          "attributes": {
+            "public_key": "<redacted>"
+          },
+          "name": "langfuse-sdk",
+          "version": "4.14.2"
+        }
+      },
+      "model": null,
+      "modelId": null,
+      "modelParameters": null,
+      "name": "consolidate",
+      "output": {
+        "discarded_as_noise": 1294,
+        "incidents": 615,
+        "why": "isolated flagged hours are noise; a sustained run is an event"
+      },
+      "outputPrice": 0,
+      "parentObservationId": "a91ac8c6acc4e8f8",
+      "projectId": "clickathon-project",
+      "promptId": null,
+      "promptName": null,
+      "promptTokens": 0,
+      "promptVersion": null,
+      "startTime": "2026-08-02T01:24:14.018Z",
+      "statusMessage": null,
+      "timeToFirstToken": null,
+      "totalPrice": 0,
+      "totalTokens": 0,
+      "traceId": "2669c5e55066fe4a208155070e8a57a7",
+      "type": "SPAN",
+      "unit": "TOKENS",
+      "updatedAt": "2026-08-02T01:24:18.366Z",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "usageDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "version": null
+    },
+    {
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "completionStartTime": null,
+      "completionTokens": 0,
+      "costDetails": {},
+      "createdAt": "2026-08-02T01:24:18.332Z",
+      "endTime": "2026-08-02T01:24:13.532Z",
+      "environment": "default",
+      "id": "03955318483e11f5",
+      "input": {
+        "baseline_weeks": 4,
+        "window": [
+          "2026-07-06 00:00:00",
+          "2026-07-10 22:00:00"
+        ]
+      },
+      "inputPrice": 0,
+      "latency": 0.217,
+      "level": "DEFAULT",
+      "metadata": {
+        "resourceAttributes": {
+          "service.instance.id": "48e0d6d1-4fdc-4f77-aede-dbca09979ddd",
+          "service.name": "inmobi-rca-api",
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0"
+        },
+        "scope": {
+          "attributes": {
+            "public_key": "<redacted>"
+          },
+          "name": "langfuse-sdk",
+          "version": "4.14.2"
+        }
+      },
+      "model": null,
+      "modelId": null,
+      "modelParameters": null,
+      "name": "detect:global",
+      "output": {
+        "hours_flagged": 140,
+        "metrics_checked": [
+          {
+            "hours_examined": 118,
+            "hours_flagged": 17,
+            "max_abs_z": 4.89,
+            "metric": "revenue",
+            "query_ms": 43.4,
+            "rows_read": 1920,
+            "verdict": "anomalous"
+          },
+          {
+            "hours_examined": 118,
+            "hours_flagged": 37,
+            "max_abs_z": 4.96,
+            "metric": "requests",
+            "query_ms": 41.6,
+            "rows_read": 1920,
+            "verdict": "anomalous"
+          },
+          {
+            "hours_examined": 118,
+            "hours_flagged": 1,
+            "max_abs_z": 5.53,
+            "metric": "fill_rate",
+            "query_ms": 41.1,
+            "rows_read": 1920,
+            "verdict": "anomalous"
+          },
+          {
+            "hours_examined": 118,
+            "hours_flagged": 85,
+            "max_abs_z": 7.38,
+            "metric": "ecpm",
+            "query_ms": 47.3,
+            "rows_read": 1920,
+            "verdict": "anomalous"
+          },
+          {
+            "hours_examined": 118,
+            "hours_flagged": 0,
+            "max_abs_z": 2.68,
+            "metric": "ctr",
+            "query_ms": 41.1,
+            "rows_read": 1920,
+            "verdict": "clean"
+          }
+        ]
+      },
+      "outputPrice": 0,
+      "parentObservationId": "a91ac8c6acc4e8f8",
+      "projectId": "clickathon-project",
+      "promptId": null,
+      "promptName": null,
+      "promptTokens": 0,
+      "promptVersion": null,
+      "startTime": "2026-08-02T01:24:13.315Z",
+      "statusMessage": null,
+      "timeToFirstToken": null,
+      "totalPrice": 0,
+      "totalTokens": 0,
+      "traceId": "2669c5e55066fe4a208155070e8a57a7",
+      "type": "SPAN",
+      "unit": "TOKENS",
+      "updatedAt": "2026-08-02T01:24:18.364Z",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "usageDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "version": null
+    }
+  ],
+  "output": null,
+  "projectId": "clickathon-project",
+  "public": false,
+  "release": null,
+  "scores": [],
+  "sessionId": null,
+  "tags": [],
+  "timestamp": "2026-08-02T01:24:13.315Z",
+  "totalCost": 0,
+  "updatedAt": "2026-08-02T01:24:18.380Z",
+  "userId": null,
+  "version": null
+}
