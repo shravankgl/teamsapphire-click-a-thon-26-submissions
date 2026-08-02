@@ -1,4 +1,4 @@
-# Incident 3 — 2026-06-28 04:00:00 → 2026-06-30 23:00:00
+# Incident 4 — 2026-06-28 04:00:00 → 2026-06-30 23:00:00
 
 **Classification:** `unattributed` · **68h** · severity 8.8 · primary factor **requests**
 
@@ -8,11 +8,11 @@
 
 ### In plain language
 
-Revenue rose 6.03% over the 68-hour window from 2026-06-28 04:00 to 2026-06-30 23:00. The movement is essentially entirely a request-volume story: requests came in at 780,742 against a baseline of 733,766, up 6.4%, accounting for 105.99% of the total movement. The other factors barely moved — fill rate 0.7758 vs 0.7846 (-1.12%, -19.24% of movement), eCPM 2.4914 vs 2.4716 (+0.8%, +13.63%), and render rate 0.9798 vs 0.98 (-0.02%).
+Between 2026-06-28 04:00 and 2026-06-30 23:00 — a 68-hour window — revenue ran +6.03% above baseline. The movement is almost entirely a volume story: requests came in at 780,742 against a baseline of 733,766, +6.4%, accounting for 105.99% of the total movement. The other factors barely participated: fill rate slipped from 0.7846 to 0.7758 (-1.12%, -19.24% of movement), eCPM rose from 2.4716 to 2.4914 (+0.8%, 13.63%), and render rate was flat at 0.9798 versus 0.98 (-0.02%).
 
-No segment is responsible — the change was global. Every dimension tested came back uniform: vertical (all 8 values within 4.3% of the global +6.4%), device_model (8 values within 0.8%), os_version (8 within 0.9%), country (16 within 1.8%), ad_format (5 within 0.6%), region (5 within 0.3%), category (7 within 0.7%), and publisher_tier (3 within 0.1%). The shape was gradual, not a step: onset at 2026-06-28 05:00 took hourly requests from 8,610 to 9,723 (+1,113), with the largest single hour carrying only 24.4% of the change; recovery was likewise gradual from 2026-07-01 04:00 (9,598 to 10,719, +1,121, step fraction 61.16%), and neither boundary aligned to a day boundary. Interpretation: this ramp profile is consistent with a rollout or progressive change in upstream request volume rather than a single discrete switch.
+No segment is responsible — the lift was global and uniform. The shape is a gradual ramp, not a step: onset at 2026-06-28 05:00 moved hourly requests from 8,610 to 9,723 (+1,113), with the largest single hour carrying only 24.4% of the change, and it does not align to a day boundary. Recovery is likewise gradual, beginning 2026-07-01 04:00 (9,598 to 10,719, +1,121, largest hour 61.16%). Interpretation: this profile is consistent with a progressive rollout or a ramping traffic source rather than a single switched change, and fill rate, render rate and eCPM all held steady throughout — meaning the extra requests monetized exactly like the existing ones.
 
-Ruled out: campaign_type was inconclusive — CPM leads the dimension but its excess is 0% of the unexplained movement, below the 50% concentration bar, and it explains only 9% of the incident, under the 10% materiality bar. All other dimensions were uniform, with largest outliers explaining between 0.2% and 4.5% of the incident. Because fill_rate, render_rate and eCPM held steady throughout, a supply or demand-quality problem is excluded — everything that arrived filled and rendered normally, so the change is purely in how many requests arrived. Next step is to look upstream of the auction at traffic sources and SDK/app-side request generation, and at anything rolling out progressively starting around 2026-06-28 05:00 and unwinding around 2026-07-01 04:00.
+Nine dimensions were checked and cleared. Vertical (8 values, all within 4.3% of the global +6.4%, largest outlier 4.5% of the incident), device_model (within 0.8%, 1.6%), os_version (within 0.9%, 1.3%), country (16 values within 1.8%, 1.1%), ad_format (within 0.6%, 1.1%), region (within 0.3%, 1.1%), category (within 0.7%, 0.8%) and publisher_tier (within 0.1%, 0.2%) all moved together. Campaign_type was inconclusive: CPM leads but its excess is 0% of the unexplained movement, below the 50% concentration bar, and it explains 9% of the incident, below the 10% materiality bar. The evidence rules out a supply or demand-quality problem — everything that arrived filled and rendered normally, so the change is purely in how many requests arrived. Next step: look upstream of the auction for a traffic-side change starting around 2026-06-28 05:00 and unwinding around 2026-07-01 04:00 — SDK or app version rollouts, a new or re-enabled integration, or bidder/exchange-side request pacing — since nothing in the reported dimensions localizes it.
 
 *Written by `claude-opus-5` over computed numbers only — it never sees an event row. Every figure above was then matched back to the computed evidence: **all numbers verified**. The run exits non-zero if a figure cannot be traced.*
 
@@ -63,8 +63,8 @@ The bonus criterion from the problem statement. Every dimension was tested with 
 
 ## Trace
 
-**Exported:** [`../traces/3404ac2b4a1fe0335949654f8330fe43.json`](../traces/3404ac2b4a1fe0335949654f8330fe43.json) · [readable summary](../traces/3404ac2b4a1fe0335949654f8330fe43.md)
+**Exported:** [`../traces/bcdc11251439b209164b8787f3276948.json`](../traces/bcdc11251439b209164b8787f3276948.json) · [readable summary](../traces/bcdc11251439b209164b8787f3276948.md)
 
 Every stage above appears in the trace in order, with its inputs, verdict and timing — including the branches that were ruled out. The SQL for every number is in `queries.md`, not in the trace.
 
-*Our Langfuse runs on a private VM, so the in-app link (`http://100.77.198.37:3000/project/clickathon-project/traces/3404ac2b4a1fe0335949654f8330fe43`) is not reachable from outside our network. The export above is the same object the Langfuse UI renders, committed so it can be read without access to our infrastructure.*
+*Our Langfuse runs on a private VM, so the in-app link (`http://100.77.198.37:3000/project/clickathon-project/traces/bcdc11251439b209164b8787f3276948`) is not reachable from outside our network. The export above is the same object the Langfuse UI renders, committed so it can be read without access to our infrastructure.*

@@ -34,4 +34,4 @@ A cell is only reported when it moved at least **2× more than its strongest par
 | 2026-06-30 | `device_model=iPhone 14` × `country=PH` | -15.2% | -6.3% | -1.0% | 976 |
 | 2026-06-29 | `device_model=iPhone 15` × `country=ID` | -15.0% | -1.4% | -3.5% | 1,659 |
 
-*Scanned 21 dimension pairs, 929,970,720 rows, 33,213 ms. This stage reads raw `ad_events` rather than a rollup, because an unpivoted rollup cannot represent combinations — see ARCHITECTURE.md for the cost and the fix.*
+*Scanned 21 dimension pairs, 1,211,930,496 rows, 43,229 ms. This stage reads raw `ad_events` rather than a rollup, because an unpivoted rollup cannot represent combinations — see ARCHITECTURE.md for the cost and the fix.*

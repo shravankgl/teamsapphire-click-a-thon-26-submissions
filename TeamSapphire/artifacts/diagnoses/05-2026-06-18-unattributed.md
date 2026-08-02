@@ -1,4 +1,4 @@
-# Incident 4 — 2026-06-18 23:00:00 → 2026-06-19 23:00:00
+# Incident 5 — 2026-06-18 23:00:00 → 2026-06-19 23:00:00
 
 **Classification:** `unattributed` · **25h** · severity 8.6 · primary factor **requests**
 
@@ -59,8 +59,8 @@ The bonus criterion from the problem statement. Every dimension was tested with 
 
 ## Trace
 
-**Exported:** [`../traces/3404ac2b4a1fe0335949654f8330fe43.json`](../traces/3404ac2b4a1fe0335949654f8330fe43.json) · [readable summary](../traces/3404ac2b4a1fe0335949654f8330fe43.md)
+**Exported:** [`../traces/bcdc11251439b209164b8787f3276948.json`](../traces/bcdc11251439b209164b8787f3276948.json) · [readable summary](../traces/bcdc11251439b209164b8787f3276948.md)
 
 Every stage above appears in the trace in order, with its inputs, verdict and timing — including the branches that were ruled out. The SQL for every number is in `queries.md`, not in the trace.
 
-*Our Langfuse runs on a private VM, so the in-app link (`http://100.77.198.37:3000/project/clickathon-project/traces/3404ac2b4a1fe0335949654f8330fe43`) is not reachable from outside our network. The export above is the same object the Langfuse UI renders, committed so it can be read without access to our infrastructure.*
+*Our Langfuse runs on a private VM, so the in-app link (`http://100.77.198.37:3000/project/clickathon-project/traces/bcdc11251439b209164b8787f3276948`) is not reachable from outside our network. The export above is the same object the Langfuse UI renders, committed so it can be read without access to our infrastructure.*

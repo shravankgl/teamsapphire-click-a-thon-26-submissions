@@ -21,7 +21,7 @@ Answers the four things the InMobi guidelines ask for: how detection, drill-down
                    │           ├── events_hourly           840 rows      │
                    │           └── events_hourly_by_dim  53,760 rows     │
                    └──────────────┬──────────────────────────────────────┘
-                                  │  111 queries per investigation
+                                  │  131 queries per investigation
      ┌────────────────────────────┴────────────────────────────┐
      │  1  DETECT       like-for-like baseline, global + segment   SQL   │
      │  2  CONSOLIDATE  flagged hours → distinct events          Python  │
@@ -97,7 +97,7 @@ excess         = actual_delta − expected_delta
 
 | Product | What it does here | Depth |
 |---|---|---|
-| **ClickHouse** | The only analytical store. Raw `MergeTree` + 2 `SummingMergeTree` rollups + 3 dictionaries. 111 queries and 934M rows per investigation | Core |
+| **ClickHouse** | The only analytical store. Raw `MergeTree` + 2 `SummingMergeTree` rollups + 3 dictionaries. 131 queries and 934M rows per investigation | Core |
 | **Langfuse** | A span per stage carrying its inputs, verdict and timing — **including the ruled-out branches**. The SQL itself lives in [`artifacts/queries.md`](artifacts/queries.md); the trace shows *what was checked, in what order, and why*, which is the evidence that our system produced the answer rather than a human | Meaningful |
 | **LibreChat + ClickHouse MCP** | A saved *InMobi Analytics* agent with a fixed system prompt and the MCP tool, querying the same tables read-only (`mcp_agent`, verified unable to write) | Meaningful |
 | **ClickStack / HyperDX** | OTel traces of the FastAPI service, plus a dashboard charting the rollups directly — so the anomalies are visible as raw shapes, independent of our engine's claims about them | Working |
@@ -127,11 +127,11 @@ We measured where the work goes rather than assuming the rollup made everything 
 
 | | Rows read | ClickHouse time | Reads |
 |---|---:|---:|---|
-| Compound scan (stage 4c) | 929,970,720 | 32.4 s | **raw `ad_events`** |
-| Everything else — detect, decompose, localize, characterize, rule out | 4,035,832 | 4.3 s | rollups |
-| **Total** | **934,006,552** | **36.7 s** | |
+| Compound scan (stage 4c) | 1,211,930,496 | 43.2 s | **raw `ad_events`** |
+| Everything else — detect, decompose, localize, characterize, rule out | 6,104,532 | 9.7 s | rollups |
+| **Total** | **1,218,035,028** | **36.7 s** | |
 
-**One stage is 99.6% of the rows and 88% of the time.** Everything the method rests on is the other 0.4%.
+**One stage is 99.5% of the rows and 82% of the time.** Everything the method rests on is the other 0.4%.
 
 **What scales structurally.** `events_hourly_by_dim` holds 53,760 rows at 9M events and *still 53,760 at 900M*, because it grows with `distinct values × hours`, not with traffic. The materialized views are insert triggers, so streaming ingestion needs no new code and no new maths; and because no statistic is materialized, nothing drifts or needs rebuilding.
 

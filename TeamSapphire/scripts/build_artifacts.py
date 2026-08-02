@@ -3,12 +3,12 @@
 The InMobi guidelines ask for the plain-language diagnosis, the segments named,
 every cited number reproducible from ClickHouse queries *with the queries
 included*, and the ruled-out ledger per investigation. All of that is already in
-diagnosis.json — this only reshapes it into files a reader can follow without
+diagnosis.json — this only reshapes it into files a judge can read without
 running anything.
 
-It is a script rather than hand-written markdown so that every run reproduces the
-same artifacts from its own output, with no opportunity for a transcription
-error between what was computed and what is published.
+It is a script rather than hand-written markdown for one reason: on Sunday the
+unseen incident has to produce the same artifacts in minutes, and anything
+hand-assembled at 09:15 will be wrong.
 
     python scripts/build_artifacts.py out/diagnosis.json <output-dir>
 """
@@ -185,7 +185,15 @@ def main() -> int:
     src = Path(sys.argv[1] if len(sys.argv) > 1 else "out/diagnosis.json")
     dst = Path(sys.argv[2] if len(sys.argv) > 2 else "artifacts")
     d = json.loads(src.read_text())
-    (dst / "diagnoses").mkdir(parents=True, exist_ok=True)
+    # Clear first: filenames encode the incident's rank and date, so a run that
+    # finds a different number of events leaves the previous run's files behind
+    # under names the new one never reuses. Measured once — 11 files where six
+    # were correct, five of them describing a superseded run.
+    diag = dst / "diagnoses"
+    if diag.exists():
+        for stale in diag.glob("*.md"):
+            stale.unlink()
+    diag.mkdir(parents=True, exist_ok=True)
 
     trace = d.get("trace_url")
     narr = d.get("narrations") or {}

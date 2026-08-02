@@ -75,7 +75,7 @@ ad_events (raw MergeTree, 9,000,000 rows)
 | | |
 |---|---|
 | [`diagnoses/`](artifacts/diagnoses/) | One file per detected incident: plain-language diagnosis, the factor decomposition, the segment named (or that none is), the transition shape, and the full ruled-out ledger |
-| [`queries.md`](artifacts/queries.md) | **All 111 queries**, with the exact SQL, rows read and timing. Every number in every diagnosis comes from one of these |
+| [`queries.md`](artifacts/queries.md) | **All 131 queries**, with the exact SQL, rows read and timing. Every number in every diagnosis comes from one of these |
 | [`compound-segments.md`](artifacts/compound-segments.md) | The 27 two-dimension findings, each with both parents' movement for comparison |
 | [`unseen/`](artifacts/unseen/) | The unseen-incident bundle — diagnosis, numbers, and trace |
 

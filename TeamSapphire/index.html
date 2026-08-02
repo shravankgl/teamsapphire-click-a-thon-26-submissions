@@ -29,7 +29,7 @@ footer{color:var(--faint);font-size:14px;border-top:1px solid var(--line);paddin
 <div class="grid">
   <a class="card" href="demo/"><b>Live demo →</b><span>The incident view: every detected event, the responsible segment, the ruled-out ledger for all nine dimensions, and the query-latency envelope.</span></a>
   <a class="card" href="deck.html"><b>Pitch deck →</b><span>15 slides. Architecture, the schema measurement, benchmarks, and what we know is broken.</span></a>
-  <a class="card" href="artifacts/"><b>Artifacts →</b><span>Diagnoses, all 111 queries with their SQL, compound findings, and the exported traces.</span></a>
+  <a class="card" href="artifacts/"><b>Artifacts →</b><span>Diagnoses, all 131 queries with their SQL, compound findings, and the exported traces.</span></a>
   <a class="card" href="https://github.com/shravankgl/teamsapphire-click-a-thon-26-submissions/tree/main/TeamSapphire"><b>Source →</b><span>Engine, API, UI, schema and tests. <code>README.md</code> has the full run steps.</span></a>
 </div>
 
@@ -70,6 +70,6 @@ share-of-volume decomposition alongside the metric one, and we did not build it.
 incidents into one on the full-window run.</p>
 
 <h2>How it works</h2>
-<p class="lead">Raw <code>MergeTree</code> → three dictionaries resolving nine dimensions at insert time → two <code>SummingMergeTree</code> rollups. The obvious fully-crossed rollup was built first and measured at <b>7,247,816 rows from 7.2M events</b> — it compressed nothing. The unpivoted grain that replaced it is <b class="grn">53,760 rows</b>, 167× smaller. One investigation runs <b>111 queries over 934,006,552 rows</b> in ~37s of ClickHouse time.</p>
+<p class="lead">Raw <code>MergeTree</code> → three dictionaries resolving nine dimensions at insert time → two <code>SummingMergeTree</code> rollups. The obvious fully-crossed rollup was built first and measured at <b>7,247,816 rows from 7.2M events</b> — it compressed nothing. The unpivoted grain that replaced it is <b class="grn">53,760 rows</b>, 167× smaller. One investigation runs <b>131 queries over 1,218,035,028 rows</b> in ~53s of ClickHouse time.</p>
 
 <footer>MIT licensed · every number on this page is computed from the data and reproducible from the queries in <a href="artifacts/queries.md" style="color:var(--dim)">artifacts/queries.md</a></footer>

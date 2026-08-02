@@ -8,7 +8,7 @@ output rather than depending on someone to assemble them correctly.
 | | |
 |---|---|
 | [`diagnoses/`](diagnoses/) | One file per detected incident — plain-language diagnosis, factor decomposition, the segment named (or that none is), transition shape, and the full ruled-out ledger |
-| [`queries.md`](queries.md) | **All 111 queries** with exact SQL, rows read and timing. Every number in every diagnosis comes from one of these |
+| [`queries.md`](queries.md) | **All 131 queries** with exact SQL, rows read and timing. Every number in every diagnosis comes from one of these |
 | [`compound-segments.md`](compound-segments.md) | The 27 two-dimension findings, each with both parents' movement for comparison |
 | [`traces/`](traces/) | Exported Langfuse traces — every stage in order with its inputs, verdict and timing, including the ruled-out branches. The SQL is in [`queries.md`](queries.md), not the trace |
 | [`unseen/`](unseen/) | The unseen-incident bundle |
