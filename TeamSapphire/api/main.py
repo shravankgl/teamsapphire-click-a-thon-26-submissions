@@ -61,6 +61,7 @@ async def lifespan(app: FastAPI):
         secure=os.getenv("CLICKHOUSE_SECURE", "true").lower() == "true",
     )
     app.state.investigation = _load_from_disk()
+    app.state.investigation_mtime = OUT_FILE.stat().st_mtime if OUT_FILE.exists() else None
     app.state.running = False
     yield
     # close() is a coroutine in clickhouse-connect 1.6 and sync in some other
@@ -127,8 +128,30 @@ def _load_from_disk() -> dict[str, Any] | None:
         try:
             return json.loads(OUT_FILE.read_text())
         except json.JSONDecodeError:
+            # A run mid-write leaves truncated JSON. Returning None here would
+            # blank the UI; callers keep the previous copy instead.
             return None
     return None
+
+
+def _current_investigation() -> dict[str, Any] | None:
+    """The last completed run, re-read whenever the file on disk has changed.
+
+    Loading once at startup meant every fresh ./investigate.sh silently served
+    stale results until someone remembered to restart the API — which reliably
+    nobody does, and which looks like the engine failing rather than the server
+    caching. An mtime check costs one stat() per request and removes the whole
+    failure mode.
+    """
+    if not OUT_FILE.exists():
+        return app.state.investigation
+    mtime = OUT_FILE.stat().st_mtime
+    if mtime != getattr(app.state, "investigation_mtime", None):
+        fresh = _load_from_disk()
+        if fresh is not None:            # keep the last good copy on a partial write
+            app.state.investigation = fresh
+            app.state.investigation_mtime = mtime
+    return app.state.investigation
 
 
 async def run(sql: str, params: dict) -> Envelope:
@@ -220,18 +243,19 @@ async def investigation():
     This is the same shape as out/diagnosis.json, deliberately: the file is the
     contract the UI was built against, so there is nothing to reshape here.
     """
-    if app.state.investigation is None:
+    inv = _current_investigation()
+    if inv is None:
         raise HTTPException(
             status_code=404,
             detail="no investigation available — run ./investigate.sh first",
         )
-    return app.state.investigation
+    return inv
 
 
 @app.get("/api/v1/events/{index}")
 async def event_detail(index: int):
     """One event by 1-based index, with its narration attached."""
-    inv = app.state.investigation
+    inv = _current_investigation()
     if inv is None:
         raise HTTPException(status_code=404, detail="no investigation available")
     events = inv.get("events", [])

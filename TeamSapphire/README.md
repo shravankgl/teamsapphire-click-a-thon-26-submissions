@@ -168,7 +168,7 @@ Without `--start`/`--end` the window is inferred from the newest data and delibe
 .venv/bin/python scripts/export_trace.py    out/diagnosis.json artifacts/traces/
 ```
 
-**7. API and UI (optional).** The API reads `out/diagnosis.json` once at startup, so restart it after a fresh run.
+**7. API and UI (optional).** The API re-reads `out/diagnosis.json` whenever it changes on disk, so a fresh `./investigate.sh` appears without a restart.
 
 ```bash
 ./dev.sh          # API on :8010, incident view on :3100
