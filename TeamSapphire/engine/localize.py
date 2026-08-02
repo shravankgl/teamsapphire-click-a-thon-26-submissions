@@ -53,8 +53,8 @@ CONCENTRATION_THRESHOLD = 0.5
 # publisher_tier=tier_1 moved -44.2% against -43.5% globally, an excess of 315
 # requests out of an incident of 97,027 — 0.3% — and was reported as
 # "responsible for 100% of the excess movement". That is a fabricated finding of
-# exactly the kind the rubric punishes hardest, produced by a confident system
-# on real data. Requiring the excess to be a material fraction of the total
+# exactly the kind that destroys trust in an analytics system — produced
+# confidently, on real data. Requiring the excess to be a material fraction of the total
 # movement is what makes "no segment is responsible" an answer the system can
 # actually give.
 MATERIAL_EXCESS_THRESHOLD = 0.10
@@ -269,7 +269,7 @@ def localize(
         # which exists only once a request has filled. So fill rate within them
         # is 1.0 by construction for every real value (only '(unfilled)' is 0),
         # every excess is exactly 0, and both were being listed as inconclusive
-        # on every fill-rate incident. An ad-tech judge spots that immediately.
+        # on every fill-rate incident. Anyone who knows ad-tech spots it immediately.
         # Compare the metric values themselves, not the excesses: excess is a
         # difference of floats and lands on ~1e-17 rather than a clean 0, so an
         # equality test against zero silently never fires.

@@ -6,7 +6,7 @@ WHY THIS EXISTS
 Every grant was originally applied by hand over curl and existed in no file.
 That is invisible until the database is rebuilt or the repo is cloned, at which
 point the compound scan fails with ACCESS_DENIED and nobody knows why — the kind
-of thing that surfaces at 09:15 on submission morning rather than in testing.
+of thing that surfaces in production rather than in testing.
 
 Grants are safe to commit; passwords are not. Passwords are read from .env
 (gitignored), so this file fully reproduces the access model without carrying a

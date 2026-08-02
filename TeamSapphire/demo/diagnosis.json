@@ -1,8 +1,514 @@
 {
   "window_start": "2026-06-08 00:00:00",
-  "window_end": "2026-07-03 00:00:00",
-  "trace_url": "http://100.77.198.37:3000/project/clickathon-project/traces/3404ac2b4a1fe0335949654f8330fe43",
+  "window_end": "2026-07-10 22:00:00",
+  "trace_url": "http://100.77.198.37:3000/project/clickathon-project/traces/bcdc11251439b209164b8787f3276948",
   "events": [
+    {
+      "start": "2026-07-06 00:00:00",
+      "end": "2026-07-10 21:00:00",
+      "hours": 118,
+      "classification": "localized",
+      "severity": 256.16,
+      "headline": "Revenue -2.1%, driven by ecpm in ad_format=video (-18.0% vs -9.1% across the platform)",
+      "primary_factor": "ecpm",
+      "revenue_pct_change": -0.021233222957457616,
+      "trigger_count": 615,
+      "triggers": [
+        {
+          "scope": "country=AR",
+          "metric": "requests",
+          "direction": "spike",
+          "hours": 118,
+          "mean_pct_change": 2.1708,
+          "peak_z": 107.95
+        },
+        {
+          "scope": "country=AR",
+          "metric": "revenue",
+          "direction": "spike",
+          "hours": 118,
+          "mean_pct_change": 2.1188,
+          "peak_z": 118.95
+        },
+        {
+          "scope": "category=news",
+          "metric": "requests",
+          "direction": "spike",
+          "hours": 118,
+          "mean_pct_change": 1.9926,
+          "peak_z": 106.44
+        },
+        {
+          "scope": "os_version=iOS 17.5",
+          "metric": "requests",
+          "direction": "spike",
+          "hours": 118,
+          "mean_pct_change": 1.8429,
+          "peak_z": 99.01
+        },
+        {
+          "scope": "country=ID",
+          "metric": "requests",
+          "direction": "spike",
+          "hours": 118,
+          "mean_pct_change": 1.6864,
+          "peak_z": 92.14
+        },
+        {
+          "scope": "category=news",
+          "metric": "revenue",
+          "direction": "spike",
+          "hours": 118,
+          "mean_pct_change": 1.5502,
+          "peak_z": 94.46
+        },
+        {
+          "scope": "country=ID",
+          "metric": "revenue",
+          "direction": "spike",
+          "hours": 118,
+          "mean_pct_change": 1.4072,
+          "peak_z": 92.98
+        },
+        {
+          "scope": "campaign_type=CPC",
+          "metric": "requests",
+          "direction": "spike",
+          "hours": 118,
+          "mean_pct_change": 1.3474,
+          "peak_z": 76.18
+        }
+      ],
+      "decomposition": {
+        "window_start": "2026-07-06 00:00:00",
+        "window_end": "2026-07-10 21:00:00",
+        "baseline_weeks_used": 4,
+        "actual": {
+          "requests": 1483235.0,
+          "fill_rate": 0.768528,
+          "render_rate": 0.979866,
+          "ecpm": 2.240315,
+          "revenue": 2502.33541,
+          "fills": 1139908.0,
+          "impressions": 1116957.0,
+          "clicks": 12183.0
+        },
+        "baseline": {
+          "requests": 1365958.0,
+          "fill_rate": 0.774638,
+          "render_rate": 0.979965,
+          "ecpm": 2.465583,
+          "revenue": 2556.620707,
+          "fills": 1058123.0,
+          "impressions": 1036923.5,
+          "clicks": 11289.0
+        },
+        "revenue_pct_change": -0.021233222957457616,
+        "factors": [
+          {
+            "factor": "ecpm",
+            "actual": 2.2403149002154956,
+            "baseline": 2.4655827623735016,
+            "pct_change": -0.09136495663246409,
+            "log_change": -0.09581175786928445,
+            "contribution_share": 4.464273906343202,
+            "contribution_pct_points": -0.09479092319654546
+          },
+          {
+            "factor": "requests",
+            "actual": 1483235.0,
+            "baseline": 1365958.0,
+            "pct_change": 0.08585695899873935,
+            "log_change": 0.08236949920758833,
+            "contribution_share": -3.837942379605146,
+            "contribution_pct_points": 0.0814918862440315
+          },
+          {
+            "factor": "fill_rate",
+            "actual": 0.7685282507492069,
+            "baseline": 0.7746380196170014,
+            "pct_change": -0.007887256645129903,
+            "log_change": -0.007918525579755023,
+            "contribution_share": 0.36895750488828316,
+            "contribution_pct_points": -0.007834156963120174
+          },
+          {
+            "factor": "render_rate",
+            "actual": 0.9798659190039898,
+            "baseline": 0.9799649946178279,
+            "pct_change": -0.0001011011764525212,
+            "log_change": -0.00010110628752100008,
+            "contribution_share": 0.0047109683736627685,
+            "contribution_pct_points": -0.00010002904182351306
+          }
+        ],
+        "primary_factor": "ecpm",
+        "identity_residual": 2.42861286636753e-17
+      },
+      "responsible": [
+        {
+          "dim_name": "ad_format",
+          "verdict": "responsible",
+          "top_value": "video",
+          "top_excess_share": 1.0,
+          "top_excess_of_total": 0.28606129706030775,
+          "reason": "video moved -18.0% against -9.4% globally, carrying 100% of the unexplained movement and 29% of the whole incident",
+          "segments": [
+            {
+              "dim_name": "ad_format",
+              "dim_value": "video",
+              "actual": 5.330547524625818,
+              "baseline": 6.503989337583699,
+              "delta": -1.173441812957881,
+              "pct_change": -0.18041877869895573,
+              "expected_delta_if_uniform": -0.07285488659123958,
+              "excess": -0.06665975817068638,
+              "excess_share": 1.0,
+              "excess_of_total": 0.28606129706030775
+            },
+            {
+              "dim_name": "ad_format",
+              "dim_value": "rewarded",
+              "actual": 4.957354650334711,
+              "baseline": 4.879926298815527,
+              "delta": 0.07742835151918381,
+              "pct_change": 0.01586670510535733,
+              "expected_delta_if_uniform": -0.03780797667402642,
+              "excess": 0.0441751923211217,
+              "excess_share": 0.0,
+              "excess_of_total": 0.18957183704314215
+            },
+            {
+              "dim_name": "ad_format",
+              "dim_value": "interstitial",
+              "actual": 2.5135254711271577,
+              "baseline": 2.6865273782059984,
+              "delta": -0.17300190707884067,
+              "pct_change": -0.06439610795791234,
+              "expected_delta_if_uniform": -0.043170291330021496,
+              "excess": 0.01366336504439344,
+              "excess_share": 0.0,
+              "excess_of_total": 0.05863447504264193
+            },
+            {
+              "dim_name": "ad_format",
+              "dim_value": "banner",
+              "actual": 0.8048660682243867,
+              "baseline": 0.8667938310163602,
+              "delta": -0.06192776279197354,
+              "pct_change": -0.07144462797959703,
+              "expected_delta_if_uniform": -0.029767939638935537,
+              "excess": 0.007194500620409654,
+              "excess_share": 0.0,
+              "excess_of_total": 0.03087422210422314
+            },
+            {
+              "dim_name": "ad_format",
+              "dim_value": "native",
+              "actual": 1.808681711763446,
+              "baseline": 1.9886039884113071,
+              "delta": -0.1799222766478612,
+              "pct_change": -0.09047667494200333,
+              "expected_delta_if_uniform": -0.04942503986959146,
+              "excess": 0.0019611822562308062,
+              "excess_share": 0.0,
+              "excess_of_total": 0.008416147243626711
+            }
+          ]
+        },
+        {
+          "dim_name": "os_version",
+          "verdict": "responsible",
+          "top_value": "Android 12",
+          "top_excess_share": 0.7297399843887098,
+          "top_excess_of_total": 0.20070269709156693,
+          "reason": "Android 12 moved -17.2% against -9.3% globally, carrying 73% of the unexplained movement and 20% of the whole incident",
+          "segments": [
+            {
+              "dim_name": "os_version",
+              "dim_value": "Android 12",
+              "actual": 2.6117216865990165,
+              "baseline": 3.1532946179464143,
+              "delta": -0.5415729313473978,
+              "pct_change": -0.17174828138960818,
+              "expected_delta_if_uniform": -0.05369539563062507,
+              "excess": -0.045888708096896894,
+              "excess_share": 0.7297399843887098,
+              "excess_of_total": 0.20070269709156693
+            },
+            {
+              "dim_name": "os_version",
+              "dim_value": "iOS 17.5",
+              "actual": 1.86986187249686,
+              "baseline": 2.2888239491684685,
+              "delta": -0.41896207667160845,
+              "pct_change": -0.18304687733795239,
+              "expected_delta_if_uniform": -0.01540878297338106,
+              "excess": -0.015048505397875953,
+              "excess_share": 0.2393071531003072,
+              "excess_of_total": 0.06581740357939922
+            },
+            {
+              "dim_name": "os_version",
+              "dim_value": "Android 15",
+              "actual": 2.223129210259872,
+              "baseline": 2.4728777682744294,
+              "delta": -0.24974855801455753,
+              "pct_change": -0.10099510829798584,
+              "expected_delta_if_uniform": -0.02148648946709504,
+              "excess": -0.0019464287320362685,
+              "excess_share": 0.030952862510983017,
+              "excess_of_total": 0.008513063723461303
+            },
+            {
+              "dim_name": "os_version",
+              "dim_value": "Android 13",
+              "actual": 2.6028202464593284,
+              "baseline": 2.3632127439432784,
+              "delta": 0.23960750251605,
+              "pct_change": 0.10139057650655638,
+              "expected_delta_if_uniform": -0.022632023037153563,
+              "excess": 0.04741089555847569,
+              "excess_share": 0.0,
+              "excess_of_total": 0.20736026366268795
+            },
+            {
+              "dim_name": "os_version",
+              "dim_value": "Android 14",
+              "actual": 2.222848222231949,
+              "baseline": 2.200693919166852,
+              "delta": 0.02215430306509658,
+              "pct_change": 0.010066962457679643,
+              "expected_delta_if_uniform": -0.034754341234961565,
+              "excess": 0.03853239455044301,
+              "excess_share": 0.0,
+              "excess_of_total": 0.16852850804473332
+            },
+            {
+              "dim_name": "os_version",
+              "dim_value": "iOS 16.4",
+              "actual": 1.976417890637459,
+              "baseline": 1.9292002555723677,
+              "delta": 0.047217635065091246,
+              "pct_change": 0.02447523782391497,
+              "expected_delta_if_uniform": -0.02684677660732287,
+              "excess": 0.033942221672146784,
+              "excess_share": 0.0,
+              "excess_of_total": 0.14845254349926576
+            },
+            {
+              "dim_name": "os_version",
+              "dim_value": "iOS 17.2",
+              "actual": 2.355109029633739,
+              "baseline": 2.561258912647711,
+              "delta": -0.20614988301397208,
+              "pct_change": -0.08048771719094336,
+              "expected_delta_if_uniform": -0.030556860060243128,
+              "excess": 0.0039986435112831335,
+              "excess_share": 0.0,
+              "excess_of_total": 0.017488802162998526
+            },
+            {
+              "dim_name": "os_version",
+              "dim_value": "iOS 18.1",
+              "actual": 2.3976842616244536,
+              "baseline": 2.6014470270430725,
+              "delta": -0.20376276541861893,
+              "pct_change": -0.07832670175499415,
+              "expected_delta_if_uniform": -0.023259547398272816,
+              "excess": 0.0035864985024481356,
+              "excess_share": 0.0,
+              "excess_of_total": 0.015686210233599552
+            }
+          ]
+        },
+        {
+          "dim_name": "device_model",
+          "verdict": "responsible",
+          "top_value": "iPhone 14",
+          "top_excess_share": 0.6632902607773093,
+          "top_excess_of_total": 0.18417592110353068,
+          "reason": "iPhone 14 moved -22.3% against -9.2% globally, carrying 66% of the unexplained movement and 18% of the whole incident",
+          "segments": [
+            {
+              "dim_name": "device_model",
+              "dim_value": "iPhone 14",
+              "actual": 1.9520419276814918,
+              "baseline": 2.513807176889303,
+              "delta": -0.5617652492078113,
+              "pct_change": -0.22347189329889838,
+              "expected_delta_if_uniform": -0.02909665533935706,
+              "excess": -0.041717411383063924,
+              "excess_share": 0.6632902607773093,
+              "excess_of_total": 0.18417592110353068
+            },
+            {
+              "dim_name": "device_model",
+              "dim_value": "Galaxy A54",
+              "actual": 2.6540665445596847,
+              "baseline": 2.996653291453875,
+              "delta": -0.34258674689419033,
+              "pct_change": -0.11432311768305328,
+              "expected_delta_if_uniform": -0.05653181351891298,
+              "excess": -0.013853254539551066,
+              "excess_share": 0.22026124132629266,
+              "excess_of_total": 0.061159976866141205
+            },
+            {
+              "dim_name": "device_model",
+              "dim_value": "iPhone 15",
+              "actual": 1.9656359660288927,
+              "baseline": 2.21093018922959,
+              "delta": -0.24529422320069738,
+              "pct_change": -0.11094616392486431,
+              "expected_delta_if_uniform": -0.026774387972284003,
+              "excess": -0.005576440021368281,
+              "excess_share": 0.08866318003336127,
+              "excess_of_total": 0.02461912049104386
+            },
+            {
+              "dim_name": "device_model",
+              "dim_value": "Pixel 7",
+              "actual": 2.2710169272672256,
+              "baseline": 2.518896827824214,
+              "delta": -0.24787990055698828,
+              "pct_change": -0.09840811970496754,
+              "expected_delta_if_uniform": -0.024363611250274145,
+              "excess": -0.0017475479503394377,
+              "excess_share": 0.027785317863036736,
+              "excess_of_total": 0.007715154002988246
+            },
+            {
+              "dim_name": "device_model",
+              "dim_value": "iPhone 13",
+              "actual": 2.3244742783240344,
+              "baseline": 2.246834534912411,
+              "delta": 0.07763974341162339,
+              "pct_change": 0.034555167372238224,
+              "expected_delta_if_uniform": -0.04020813321968067,
+              "excess": 0.055339580489269256,
+              "excess_share": 0.0,
+              "excess_of_total": 0.2443156915108086
+            },
+            {
+              "dim_name": "device_model",
+              "dim_value": "Pixel 8",
+              "actual": 2.4956007603977466,
+              "baseline": 2.1199468924426195,
+              "delta": 0.3756538679551271,
+              "pct_change": 0.17719965971519966,
+              "expected_delta_if_uniform": -0.015411503852804395,
+              "excess": 0.04515290744695742,
+              "excess_share": 0.0,
+              "excess_of_total": 0.19934310504515013
+            },
+            {
+              "dim_name": "device_model",
+              "dim_value": "Galaxy S23",
+              "actual": 2.4149651614962706,
+              "baseline": 2.3069834077902907,
+              "delta": 0.10798175370597995,
+              "pct_change": 0.04680647175066103,
+              "expected_delta_if_uniform": -0.013794613318895874,
+              "excess": 0.020826453543916015,
+              "excess_share": 0.0,
+              "excess_of_total": 0.09194557230671845
+            },
+            {
+              "dim_name": "device_model",
+              "dim_value": "Redmi Note 12",
+              "actual": 2.2810728752452154,
+              "baseline": 2.4041887996490754,
+              "delta": -0.12311592440385999,
+              "pct_change": -0.05120892519831657,
+              "expected_delta_if_uniform": -0.020327780212661514,
+              "excess": 0.008991014414305498,
+              "excess_share": 0.0,
+              "excess_of_total": 0.039693938490203064
+            }
+          ]
+        }
+      ],
+      "ruled_out": [
+        {
+          "dim_name": "region",
+          "verdict": "inconclusive",
+          "top_value": "NAM",
+          "top_excess_share": 0.0,
+          "top_excess_of_total": 0.3554,
+          "reason": "NAM leads this dimension, but its excess is 0% of the unexplained movement, under the 50% concentration bar \u2014 the movement is spread across values, not concentrated in one"
+        },
+        {
+          "dim_name": "country",
+          "verdict": "inconclusive",
+          "top_value": "US",
+          "top_excess_share": 0.0,
+          "top_excess_of_total": 0.2362,
+          "reason": "US leads this dimension, but its excess is 0% of the unexplained movement, under the 50% concentration bar \u2014 the movement is spread across values, not concentrated in one"
+        },
+        {
+          "dim_name": "publisher_tier",
+          "verdict": "uniform",
+          "top_value": "tier_2",
+          "top_excess_share": 0.6472,
+          "top_excess_of_total": 0.0115,
+          "reason": "all 3 values moved together (every one within 0.5% of the global -9.1%); the largest outlier explains only 1.1% of the incident, so this dimension does not explain it"
+        },
+        {
+          "dim_name": "category",
+          "verdict": "uniform",
+          "top_value": "gaming",
+          "top_excess_share": 0.3537,
+          "top_excess_of_total": 0.0077,
+          "reason": "all 7 values moved together (every one within 3.7% of the global -9.3%); the largest outlier explains only 0.8% of the incident, so this dimension does not explain it"
+        },
+        {
+          "dim_name": "campaign_type",
+          "verdict": "uniform",
+          "top_value": "CPM",
+          "top_excess_share": 0.9644,
+          "top_excess_of_total": 0.0062,
+          "reason": "all 4 values moved together (every one within 9.1% of the global -9.1%); the largest outlier explains only 0.6% of the incident, so this dimension does not explain it"
+        },
+        {
+          "dim_name": "vertical",
+          "verdict": "uniform",
+          "top_value": "travel",
+          "top_excess_share": 0.4485,
+          "top_excess_of_total": 0.0028,
+          "reason": "all 8 values moved together (every one within 9.1% of the global -9.1%); the largest outlier explains only 0.3% of the incident, so this dimension does not explain it"
+        }
+      ],
+      "signature": {
+        "factor": "ecpm",
+        "scope": "ad_format=video",
+        "onset": {
+          "at_hour": "2026-07-06 00:00:00",
+          "before": 6.520218,
+          "after": 6.102399,
+          "change": -0.417818,
+          "step_fraction": 0.3431,
+          "shape": "gradual",
+          "aligns_to_day_boundary": true
+        },
+        "recovery": {
+          "at_hour": "2026-07-10 23:00:00",
+          "before": 4.126668,
+          "after": 4.297747,
+          "change": 0.171079,
+          "step_fraction": 0.1548,
+          "shape": "gradual",
+          "aligns_to_day_boundary": false
+        },
+        "duration_hours": 118,
+        "held_steady": [
+          "fill_rate",
+          "render_rate"
+        ],
+        "reading": "ecpm moved gradually into the window, the largest single hour carrying 34% of the change \u2014 consistent with a rollout or progressive degradation rather than a single change; the change lands exactly on a day boundary, which points at something that schedules in days \u2014 a campaign flight, a config push, a nightly job \u2014 rather than an organic failure; it recovers gradually from 2026-07-10 23:00:00; meanwhile fill_rate, render_rate held steady through the window.",
+        "rules_out": []
+      }
+    },
     {
       "start": "2026-06-23 00:00:00",
       "end": "2026-06-25 23:00:00",
@@ -1417,107 +1923,107 @@
   "detector_ledger": [
     {
       "metric": "revenue",
-      "hours_examined": 600,
-      "hours_flagged": 33,
+      "hours_examined": 790,
+      "hours_flagged": 51,
       "max_abs_z": 24.32,
       "verdict": "anomalous",
-      "query_ms": 38.9,
-      "rows_read": 1680,
+      "query_ms": 53.6,
+      "rows_read": 1920,
       "scan": "global"
     },
     {
       "metric": "requests",
-      "hours_examined": 600,
-      "hours_flagged": 25,
+      "hours_examined": 790,
+      "hours_flagged": 62,
       "max_abs_z": 22.54,
       "verdict": "anomalous",
-      "query_ms": 39.7,
-      "rows_read": 1680,
+      "query_ms": 43.7,
+      "rows_read": 1920,
       "scan": "global"
     },
     {
       "metric": "fill_rate",
-      "hours_examined": 600,
-      "hours_flagged": 0,
+      "hours_examined": 790,
+      "hours_flagged": 1,
       "max_abs_z": 12.09,
-      "verdict": "clean",
-      "query_ms": 40.9,
-      "rows_read": 1680,
+      "verdict": "anomalous",
+      "query_ms": 53.7,
+      "rows_read": 1920,
       "scan": "global"
     },
     {
       "metric": "ecpm",
-      "hours_examined": 600,
-      "hours_flagged": 1,
-      "max_abs_z": 4.35,
+      "hours_examined": 790,
+      "hours_flagged": 86,
+      "max_abs_z": 7.38,
       "verdict": "anomalous",
-      "query_ms": 41.1,
-      "rows_read": 1680,
+      "query_ms": 46.3,
+      "rows_read": 1920,
       "scan": "global"
     },
     {
       "metric": "ctr",
-      "hours_examined": 600,
+      "hours_examined": 790,
       "hours_flagged": 4,
       "max_abs_z": 3.96,
       "verdict": "anomalous",
-      "query_ms": 40.3,
-      "rows_read": 1680,
+      "query_ms": 65.5,
+      "rows_read": 1920,
       "scan": "global"
     },
     {
       "scan": "segment",
       "metric": "revenue",
-      "segment_hours_examined": 32753,
-      "segment_hours_flagged": 3358,
-      "max_abs_z": 27.65,
+      "segment_hours_examined": 43374,
+      "segment_hours_flagged": 8209,
+      "max_abs_z": 118.95,
       "verdict": "anomalous",
-      "query_ms": 202.3,
-      "rows_read": 107520
+      "query_ms": 297.6,
+      "rows_read": 122880
     },
     {
       "scan": "segment",
       "metric": "requests",
-      "segment_hours_examined": 32753,
-      "segment_hours_flagged": 2453,
-      "max_abs_z": 25.0,
+      "segment_hours_examined": 43374,
+      "segment_hours_flagged": 7450,
+      "max_abs_z": 107.95,
       "verdict": "anomalous",
-      "query_ms": 96.9,
-      "rows_read": 107520
+      "query_ms": 123.3,
+      "rows_read": 122880
     },
     {
       "scan": "segment",
       "metric": "fill_rate",
-      "segment_hours_examined": 32753,
-      "segment_hours_flagged": 545,
-      "max_abs_z": 34.6,
+      "segment_hours_examined": 43374,
+      "segment_hours_flagged": 1098,
+      "max_abs_z": 44.44,
       "verdict": "anomalous",
-      "query_ms": 104.5,
-      "rows_read": 107520
+      "query_ms": 209.7,
+      "rows_read": 122880
     },
     {
       "scan": "segment",
       "metric": "ecpm",
-      "segment_hours_examined": 32753,
-      "segment_hours_flagged": 794,
+      "segment_hours_examined": 43374,
+      "segment_hours_flagged": 3746,
       "max_abs_z": 20.31,
       "verdict": "anomalous",
-      "query_ms": 127.3,
-      "rows_read": 107520
+      "query_ms": 271.5,
+      "rows_read": 122880
     },
     {
       "scan": "segment",
       "metric": "ctr",
-      "segment_hours_examined": 32753,
-      "segment_hours_flagged": 273,
+      "segment_hours_examined": 43374,
+      "segment_hours_flagged": 351,
       "max_abs_z": 7.54,
       "verdict": "anomalous",
-      "query_ms": 101.6,
-      "rows_read": 107520
+      "query_ms": 181.4,
+      "rows_read": 122880
     }
   ],
-  "discarded_noise": 4265,
-  "suppressed_low_severity": 11,
+  "discarded_noise": 6003,
+  "suppressed_low_severity": 14,
   "compound_findings": [
     {
       "day": "2026-06-28",
@@ -1901,957 +2407,1103 @@
   "compound_ledger": [
     {
       "pair": "region x device_model",
-      "cells_examined": 1000,
+      "cells_examined": 1320,
       "flagged": 13,
-      "query_ms": 1706.3,
-      "rows_read": 44284320
+      "query_ms": 2060.8,
+      "rows_read": 57710976
     },
     {
       "pair": "region x os_version",
-      "cells_examined": 1000,
+      "cells_examined": 1320,
       "flagged": 3,
-      "query_ms": 1625.4,
-      "rows_read": 44284320
+      "query_ms": 2043.1,
+      "rows_read": 57710976
     },
     {
       "pair": "region x category",
-      "cells_examined": 875,
+      "cells_examined": 1155,
       "flagged": 0,
-      "query_ms": 1845.6,
-      "rows_read": 44284320
+      "query_ms": 2301.5,
+      "rows_read": 57710976
     },
     {
       "pair": "region x publisher_tier",
-      "cells_examined": 375,
+      "cells_examined": 495,
       "flagged": 0,
-      "query_ms": 1767.2,
-      "rows_read": 44284320
+      "query_ms": 2181.2,
+      "rows_read": 57710976
     },
     {
       "pair": "region x ad_format",
-      "cells_examined": 625,
+      "cells_examined": 825,
       "flagged": 0,
-      "query_ms": 1247.2,
-      "rows_read": 44284320
+      "query_ms": 1755.8,
+      "rows_read": 57710976
     },
     {
       "pair": "region x country",
-      "cells_examined": 400,
+      "cells_examined": 528,
       "flagged": 0,
-      "query_ms": 1476.6,
-      "rows_read": 44284320
+      "query_ms": 2036.7,
+      "rows_read": 57710976
     },
     {
       "pair": "device_model x os_version",
-      "cells_examined": 800,
+      "cells_examined": 1056,
       "flagged": 0,
-      "query_ms": 1519.9,
-      "rows_read": 44284320
+      "query_ms": 2003.9,
+      "rows_read": 57710976
     },
     {
       "pair": "device_model x category",
-      "cells_examined": 1400,
+      "cells_examined": 1848,
       "flagged": 0,
-      "query_ms": 1991.2,
-      "rows_read": 44284320
+      "query_ms": 2284.5,
+      "rows_read": 57710976
     },
     {
       "pair": "device_model x publisher_tier",
-      "cells_examined": 600,
+      "cells_examined": 792,
       "flagged": 0,
-      "query_ms": 1739.1,
-      "rows_read": 44284320
+      "query_ms": 2232.6,
+      "rows_read": 57710976
     },
     {
       "pair": "device_model x ad_format",
-      "cells_examined": 1000,
+      "cells_examined": 1320,
       "flagged": 0,
-      "query_ms": 1296.6,
-      "rows_read": 44284320
+      "query_ms": 1602.5,
+      "rows_read": 57710976
     },
     {
       "pair": "device_model x country",
-      "cells_examined": 2920,
-      "flagged": 53,
-      "query_ms": 1608.5,
-      "rows_read": 44284320
+      "cells_examined": 3870,
+      "flagged": 61,
+      "query_ms": 1984.8,
+      "rows_read": 57710976
     },
     {
       "pair": "os_version x category",
-      "cells_examined": 1400,
+      "cells_examined": 1848,
       "flagged": 0,
-      "query_ms": 1744.8,
-      "rows_read": 44284320
+      "query_ms": 2661.9,
+      "rows_read": 57710976
     },
     {
       "pair": "os_version x publisher_tier",
-      "cells_examined": 600,
+      "cells_examined": 792,
       "flagged": 0,
-      "query_ms": 1649.2,
-      "rows_read": 44284320
+      "query_ms": 2235.0,
+      "rows_read": 57710976
     },
     {
       "pair": "os_version x ad_format",
-      "cells_examined": 1000,
+      "cells_examined": 1320,
       "flagged": 0,
-      "query_ms": 1248.1,
-      "rows_read": 44284320
+      "query_ms": 1750.7,
+      "rows_read": 57710976
     },
     {
       "pair": "os_version x country",
-      "cells_examined": 2919,
-      "flagged": 12,
-      "query_ms": 1564.1,
-      "rows_read": 44284320
+      "cells_examined": 3865,
+      "flagged": 20,
+      "query_ms": 2155.5,
+      "rows_read": 57710976
     },
     {
       "pair": "category x publisher_tier",
-      "cells_examined": 525,
+      "cells_examined": 693,
       "flagged": 0,
-      "query_ms": 1694.8,
-      "rows_read": 44284320
+      "query_ms": 2125.3,
+      "rows_read": 57710976
     },
     {
       "pair": "category x ad_format",
-      "cells_examined": 875,
+      "cells_examined": 1155,
       "flagged": 0,
-      "query_ms": 1318.1,
-      "rows_read": 44284320
+      "query_ms": 1728.7,
+      "rows_read": 57710976
     },
     {
       "pair": "category x country",
-      "cells_examined": 2785,
+      "cells_examined": 3681,
       "flagged": 0,
-      "query_ms": 1778.4,
-      "rows_read": 44284320
+      "query_ms": 2317.6,
+      "rows_read": 57710976
     },
     {
       "pair": "publisher_tier x ad_format",
-      "cells_examined": 375,
+      "cells_examined": 495,
       "flagged": 0,
-      "query_ms": 1463.2,
-      "rows_read": 44284320
+      "query_ms": 1628.8,
+      "rows_read": 57710976
     },
     {
       "pair": "publisher_tier x country",
-      "cells_examined": 1200,
+      "cells_examined": 1584,
       "flagged": 0,
-      "query_ms": 1676.6,
-      "rows_read": 44284320
+      "query_ms": 2280.8,
+      "rows_read": 57710976
     },
     {
       "pair": "ad_format x country",
-      "cells_examined": 1996,
+      "cells_examined": 2636,
       "flagged": 0,
-      "query_ms": 1252.0,
-      "rows_read": 44284320
+      "query_ms": 1857.3,
+      "rows_read": 57710976
     },
     {
       "pair": "(summary)",
       "novel": 27,
-      "inside_known_windows": 54
+      "inside_known_windows": 70
     }
   ],
-  "total_query_ms": 37161.5,
-  "total_rows_read": 934006552,
+  "total_query_ms": 52931.2,
+  "total_rows_read": 1218035028,
   "queries": [
     {
       "label": "detect:revenue",
       "sql": "WITH target AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, revenue AS metric_value, 0 AS denom FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour < {end:DateTime} ), hist AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, revenue AS metric_value FROM inmobi.events_hourly WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 38.9,
-      "rows_read": 1680,
-      "rows_returned": 600
+      "query_ms": 53.6,
+      "rows_read": 1920,
+      "rows_returned": 790
     },
     {
       "label": "detect:requests",
       "sql": "WITH target AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, requests AS metric_value, 0 AS denom FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour < {end:DateTime} ), hist AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests AS metric_value FROM inmobi.events_hourly WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 39.7,
-      "rows_read": 1680,
-      "rows_returned": 600
+      "query_ms": 43.7,
+      "rows_read": 1920,
+      "rows_returned": 790
     },
     {
       "label": "detect:fill_rate",
       "sql": "WITH target AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, if(requests > 0, fills / requests, 0) AS metric_value, requests AS denom FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour < {end:DateTime} ), hist AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, if(requests > 0, fills / requests, 0) AS metric_value FROM inmobi.events_hourly WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 40.9,
-      "rows_read": 1680,
-      "rows_returned": 600
+      "query_ms": 53.7,
+      "rows_read": 1920,
+      "rows_returned": 790
     },
     {
       "label": "detect:ecpm",
       "sql": "WITH target AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, if(impressions > 0, revenue / impressions * 1000, 0) AS metric_value, 0 AS denom FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour < {end:DateTime} ), hist AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, if(impressions > 0, revenue / impressions * 1000, 0) AS metric_value FROM inmobi.events_hourly WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 41.1,
-      "rows_read": 1680,
-      "rows_returned": 600
+      "query_ms": 46.3,
+      "rows_read": 1920,
+      "rows_returned": 790
     },
     {
       "label": "detect:ctr",
       "sql": "WITH target AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, if(impressions > 0, clicks / impressions, 0) AS metric_value, impressions AS denom FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour < {end:DateTime} ), hist AS ( SELECT hour, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, if(impressions > 0, clicks / impressions, 0) AS metric_value FROM inmobi.events_hourly WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 40.3,
-      "rows_read": 1680,
-      "rows_returned": 600
+      "query_ms": 65.5,
+      "rows_read": 1920,
+      "rows_returned": 790
     },
     {
       "label": "detect_segments:revenue",
       "sql": "WITH target AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, revenue AS metric_value, 0 AS denom FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour < {end:DateTime} AND requests >= {min_volume:UInt32} ), hist AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, revenue AS metric_value FROM inmobi.events_hourly_by_dim WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.dim_name AS dim_name, t.dim_value AS dim_value, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dim_name = h.dim_name AND t.dim_value = h.dim_value AND t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.dim_name, t.dim_value, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 202.3,
-      "rows_read": 107520,
-      "rows_returned": 32753
+      "query_ms": 297.6,
+      "rows_read": 122880,
+      "rows_returned": 43374
     },
     {
       "label": "detect_segments:requests",
       "sql": "WITH target AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, requests AS metric_value, 0 AS denom FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour < {end:DateTime} AND requests >= {min_volume:UInt32} ), hist AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests AS metric_value FROM inmobi.events_hourly_by_dim WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.dim_name AS dim_name, t.dim_value AS dim_value, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dim_name = h.dim_name AND t.dim_value = h.dim_value AND t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.dim_name, t.dim_value, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 96.9,
-      "rows_read": 107520,
-      "rows_returned": 32753
+      "query_ms": 123.3,
+      "rows_read": 122880,
+      "rows_returned": 43374
     },
     {
       "label": "detect_segments:fill_rate",
       "sql": "WITH target AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, if(requests > 0, fills / requests, 0) AS metric_value, requests AS denom FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour < {end:DateTime} AND requests >= {min_volume:UInt32} ), hist AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, if(requests > 0, fills / requests, 0) AS metric_value FROM inmobi.events_hourly_by_dim WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.dim_name AS dim_name, t.dim_value AS dim_value, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dim_name = h.dim_name AND t.dim_value = h.dim_value AND t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.dim_name, t.dim_value, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 104.5,
-      "rows_read": 107520,
-      "rows_returned": 32753
+      "query_ms": 209.7,
+      "rows_read": 122880,
+      "rows_returned": 43374
     },
     {
       "label": "detect_segments:ecpm",
       "sql": "WITH target AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, if(impressions > 0, revenue / impressions * 1000, 0) AS metric_value, 0 AS denom FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour < {end:DateTime} AND requests >= {min_volume:UInt32} ), hist AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, if(impressions > 0, revenue / impressions * 1000, 0) AS metric_value FROM inmobi.events_hourly_by_dim WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.dim_name AS dim_name, t.dim_value AS dim_value, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dim_name = h.dim_name AND t.dim_value = h.dim_value AND t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.dim_name, t.dim_value, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 127.3,
-      "rows_read": 107520,
-      "rows_returned": 32753
+      "query_ms": 271.5,
+      "rows_read": 122880,
+      "rows_returned": 43374
     },
     {
       "label": "detect_segments:ctr",
       "sql": "WITH target AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, requests, fills, impressions, clicks, revenue, if(impressions > 0, clicks / impressions, 0) AS metric_value, impressions AS denom FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour < {end:DateTime} AND requests >= {min_volume:UInt32} ), hist AS ( SELECT hour, dim_name, dim_value, toDayOfWeek(hour) AS dow, toHour(hour) AS hod, if(impressions > 0, clicks / impressions, 0) AS metric_value FROM inmobi.events_hourly_by_dim WHERE hour < {end:DateTime} ) SELECT t.hour AS hour, t.dim_name AS dim_name, t.dim_value AS dim_value, t.metric_value AS actual, t.denom AS denom, quantileExact(0.5)(h.metric_value) AS baseline, stddevPop(h.metric_value) AS spread, count() AS baseline_samples FROM target AS t INNER JOIN hist AS h ON t.dim_name = h.dim_name AND t.dim_value = h.dim_value AND t.dow = h.dow AND t.hod = h.hod WHERE h.hour < t.hour AND h.hour >= t.hour - toIntervalWeek({weeks:UInt8}) GROUP BY t.hour, t.dim_name, t.dim_value, t.metric_value, t.denom ORDER BY t.hour",
-      "query_ms": 101.6,
-      "rows_read": 107520,
-      "rows_returned": 32753
+      "query_ms": 181.4,
+      "rows_read": 122880,
+      "rows_returned": 43374
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 30.3,
+      "query_ms": 38.5,
+      "rows_read": 1,
+      "rows_returned": 1
+    },
+    {
+      "label": "decompose:window_vs_baseline",
+      "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) UNION ALL SELECT 4 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) ORDER BY weeks_back",
+      "query_ms": 49.4,
+      "rows_read": 4800,
+      "rows_returned": 5
+    },
+    {
+      "label": "localize:ecpm",
+      "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value UNION ALL SELECT 4 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) GROUP BY dim_name, dim_value",
+      "query_ms": 52.9,
+      "rows_read": 307200,
+      "rows_returned": 320
+    },
+    {
+      "label": "characterize:ecpm:ad_format=video",
+      "sql": "SELECT hour, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
+      "query_ms": 47.6,
+      "rows_read": 15872,
+      "rows_returned": 126
+    },
+    {
+      "label": "characterize:baseline:ad_format=video",
+      "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
+      "query_ms": 44.8,
+      "rows_read": 15872,
+      "rows_returned": 118
+    },
+    {
+      "label": "baseline:data_range",
+      "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
+      "query_ms": 32.3,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) ORDER BY weeks_back",
-      "query_ms": 38.3,
-      "rows_read": 3360,
+      "query_ms": 47.3,
+      "rows_read": 3840,
       "rows_returned": 4
     },
     {
       "label": "localize:fill_rate",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value",
-      "query_ms": 45.7,
-      "rows_read": 215040,
+      "query_ms": 52.0,
+      "rows_read": 245760,
       "rows_returned": 256
     },
     {
       "label": "characterize:fill_rate:os_version=Android 15",
       "sql": "SELECT hour, if(requests > 0, fills / requests, 0) AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 34.9,
-      "rows_read": 8192,
+      "query_ms": 47.6,
+      "rows_read": 15872,
       "rows_returned": 84
     },
     {
       "label": "characterize:baseline:os_version=Android 15",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 35.0,
-      "rows_read": 8192,
+      "query_ms": 36.7,
+      "rows_read": 15872,
       "rows_returned": 72
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 31.0,
+      "query_ms": 71.0,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) ORDER BY weeks_back",
-      "query_ms": 38.4,
-      "rows_read": 2520,
+      "query_ms": 110.5,
+      "rows_read": 2880,
       "rows_returned": 3
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value",
-      "query_ms": 45.3,
-      "rows_read": 161280,
+      "query_ms": 64.7,
+      "rows_read": 184320,
       "rows_returned": 192
     },
     {
       "label": "characterize:requests:global",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) ORDER BY hour",
-      "query_ms": 36.2,
-      "rows_read": 840,
+      "query_ms": 45.7,
+      "rows_read": 960,
       "rows_returned": 36
     },
     {
       "label": "characterize:baseline:global",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1)",
-      "query_ms": 33.6,
-      "rows_read": 840,
+      "query_ms": 45.5,
+      "rows_read": 960,
       "rows_returned": 24
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 31.4,
+      "query_ms": 48.7,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) ORDER BY weeks_back",
-      "query_ms": 41.1,
-      "rows_read": 3360,
+      "query_ms": 72.1,
+      "rows_read": 3840,
       "rows_returned": 4
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value",
-      "query_ms": 49.0,
-      "rows_read": 215040,
+      "query_ms": 81.9,
+      "rows_read": 245760,
       "rows_returned": 256
     },
     {
       "label": "characterize:requests:global",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) ORDER BY hour",
-      "query_ms": 35.8,
-      "rows_read": 840,
+      "query_ms": 59.6,
+      "rows_read": 960,
       "rows_returned": 80
     },
     {
       "label": "characterize:baseline:global",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1)",
-      "query_ms": 36.0,
-      "rows_read": 840,
+      "query_ms": 56.9,
+      "rows_read": 960,
       "rows_returned": 68
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 35.6,
+      "query_ms": 46.7,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) ORDER BY weeks_back",
-      "query_ms": 38.0,
-      "rows_read": 2520,
+      "query_ms": 61.8,
+      "rows_read": 2880,
       "rows_returned": 3
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value",
-      "query_ms": 46.5,
-      "rows_read": 161280,
+      "query_ms": 69.2,
+      "rows_read": 184320,
       "rows_returned": 192
     },
     {
       "label": "characterize:requests:global",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) ORDER BY hour",
-      "query_ms": 35.4,
-      "rows_read": 840,
+      "query_ms": 59.1,
+      "rows_read": 960,
       "rows_returned": 37
     },
     {
       "label": "characterize:baseline:global",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1)",
-      "query_ms": 33.6,
-      "rows_read": 840,
+      "query_ms": 38.5,
+      "rows_read": 960,
       "rows_returned": 25
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 30.9,
+      "query_ms": 43.4,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) ORDER BY weeks_back",
-      "query_ms": 36.2,
-      "rows_read": 2520,
+      "query_ms": 45.4,
+      "rows_read": 2880,
       "rows_returned": 3
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value",
-      "query_ms": 46.7,
-      "rows_read": 161280,
+      "query_ms": 88.1,
+      "rows_read": 184320,
       "rows_returned": 192
     },
     {
       "label": "characterize:requests:global",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) ORDER BY hour",
-      "query_ms": 37.2,
-      "rows_read": 840,
+      "query_ms": 68.1,
+      "rows_read": 960,
       "rows_returned": 23
     },
     {
       "label": "characterize:baseline:global",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1)",
-      "query_ms": 40.7,
-      "rows_read": 840,
+      "query_ms": 42.0,
+      "rows_read": 960,
       "rows_returned": 11
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 32.6,
+      "query_ms": 54.8,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) ORDER BY weeks_back",
-      "query_ms": 44.7,
-      "rows_read": 2520,
+      "query_ms": 57.7,
+      "rows_read": 2880,
       "rows_returned": 3
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value",
-      "query_ms": 47.5,
-      "rows_read": 161280,
+      "query_ms": 96.0,
+      "rows_read": 184320,
       "rows_returned": 192
     },
     {
       "label": "characterize:requests:category=gaming",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 39.6,
-      "rows_read": 8192,
+      "query_ms": 66.0,
+      "rows_read": 15872,
       "rows_returned": 21
     },
     {
       "label": "characterize:baseline:category=gaming",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 40.9,
-      "rows_read": 8192,
+      "query_ms": 102.2,
+      "rows_read": 15872,
       "rows_returned": 9
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 32.4,
+      "query_ms": 49.7,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) ORDER BY weeks_back",
-      "query_ms": 40.3,
-      "rows_read": 3360,
+      "query_ms": 51.9,
+      "rows_read": 3840,
       "rows_returned": 4
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value",
-      "query_ms": 46.1,
-      "rows_read": 215040,
+      "query_ms": 181.6,
+      "rows_read": 245760,
       "rows_returned": 256
     },
     {
       "label": "characterize:requests:publisher_tier=tier_1",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 35.5,
-      "rows_read": 8192,
+      "query_ms": 173.2,
+      "rows_read": 15872,
       "rows_returned": 17
     },
     {
       "label": "characterize:baseline:publisher_tier=tier_1",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 38.8,
-      "rows_read": 8192,
+      "query_ms": 144.8,
+      "rows_read": 15872,
       "rows_returned": 5
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 36.3,
+      "query_ms": 44.1,
+      "rows_read": 1,
+      "rows_returned": 1
+    },
+    {
+      "label": "decompose:window_vs_baseline",
+      "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) UNION ALL SELECT 4 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) ORDER BY weeks_back",
+      "query_ms": 238.7,
+      "rows_read": 4800,
+      "rows_returned": 5
+    },
+    {
+      "label": "localize:requests",
+      "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value UNION ALL SELECT 4 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) GROUP BY dim_name, dim_value",
+      "query_ms": 128.3,
+      "rows_read": 307200,
+      "rows_returned": 320
+    },
+    {
+      "label": "characterize:requests:device_model=Galaxy A54",
+      "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
+      "query_ms": 99.5,
+      "rows_read": 15872,
+      "rows_returned": 15
+    },
+    {
+      "label": "characterize:baseline:device_model=Galaxy A54",
+      "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
+      "query_ms": 139.3,
+      "rows_read": 15872,
+      "rows_returned": 3
+    },
+    {
+      "label": "baseline:data_range",
+      "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
+      "query_ms": 56.7,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) ORDER BY weeks_back",
-      "query_ms": 44.1,
-      "rows_read": 3360,
+      "query_ms": 77.7,
+      "rows_read": 3840,
       "rows_returned": 4
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value",
-      "query_ms": 47.1,
-      "rows_read": 215040,
+      "query_ms": 92.4,
+      "rows_read": 245760,
       "rows_returned": 256
     },
     {
       "label": "characterize:requests:device_model=iPhone 15",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 34.9,
-      "rows_read": 8192,
+      "query_ms": 119.3,
+      "rows_read": 15872,
       "rows_returned": 15
     },
     {
       "label": "characterize:baseline:device_model=iPhone 15",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 33.9,
-      "rows_read": 8192,
+      "query_ms": 72.9,
+      "rows_read": 15872,
       "rows_returned": 3
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 31.0,
+      "query_ms": 45.5,
+      "rows_read": 1,
+      "rows_returned": 1
+    },
+    {
+      "label": "decompose:window_vs_baseline",
+      "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) UNION ALL SELECT 4 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) ORDER BY weeks_back",
+      "query_ms": 59.2,
+      "rows_read": 4800,
+      "rows_returned": 5
+    },
+    {
+      "label": "localize:requests",
+      "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value UNION ALL SELECT 4 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) GROUP BY dim_name, dim_value",
+      "query_ms": 79.0,
+      "rows_read": 307200,
+      "rows_returned": 320
+    },
+    {
+      "label": "characterize:requests:publisher_tier=tier_2",
+      "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
+      "query_ms": 39.7,
+      "rows_read": 15872,
+      "rows_returned": 15
+    },
+    {
+      "label": "characterize:baseline:publisher_tier=tier_2",
+      "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
+      "query_ms": 49.9,
+      "rows_read": 15872,
+      "rows_returned": 3
+    },
+    {
+      "label": "baseline:data_range",
+      "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
+      "query_ms": 55.7,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) ORDER BY weeks_back",
-      "query_ms": 39.0,
-      "rows_read": 2520,
+      "query_ms": 53.6,
+      "rows_read": 2880,
       "rows_returned": 3
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value",
-      "query_ms": 47.3,
-      "rows_read": 161280,
+      "query_ms": 58.9,
+      "rows_read": 184320,
       "rows_returned": 192
     },
     {
       "label": "characterize:requests:campaign_type=CPM",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 38.5,
-      "rows_read": 8192,
+      "query_ms": 58.8,
+      "rows_read": 15872,
       "rows_returned": 15
     },
     {
       "label": "characterize:baseline:campaign_type=CPM",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 33.1,
-      "rows_read": 8192,
+      "query_ms": 43.6,
+      "rows_read": 15872,
       "rows_returned": 3
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 40.7,
+      "query_ms": 38.3,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) ORDER BY weeks_back",
-      "query_ms": 51.6,
-      "rows_read": 3360,
+      "query_ms": 51.4,
+      "rows_read": 3840,
       "rows_returned": 4
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value",
-      "query_ms": 60.0,
-      "rows_read": 215040,
+      "query_ms": 204.7,
+      "rows_read": 245760,
       "rows_returned": 256
     },
     {
       "label": "characterize:requests:global",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) ORDER BY hour",
-      "query_ms": 34.6,
-      "rows_read": 840,
+      "query_ms": 113.7,
+      "rows_read": 960,
       "rows_returned": 15
     },
     {
       "label": "characterize:baseline:global",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1)",
-      "query_ms": 35.8,
-      "rows_read": 840,
+      "query_ms": 162.5,
+      "rows_read": 960,
       "rows_returned": 3
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 32.1,
+      "query_ms": 208.2,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) UNION ALL SELECT 4 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) ORDER BY weeks_back",
-      "query_ms": 42.6,
-      "rows_read": 4200,
+      "query_ms": 108.0,
+      "rows_read": 4800,
       "rows_returned": 5
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value UNION ALL SELECT 4 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) GROUP BY dim_name, dim_value",
-      "query_ms": 60.2,
-      "rows_read": 268800,
+      "query_ms": 97.3,
+      "rows_read": 307200,
       "rows_returned": 320
     },
     {
-      "label": "characterize:requests:global",
-      "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) ORDER BY hour",
-      "query_ms": 33.0,
-      "rows_read": 840,
+      "label": "characterize:requests:os_version=iOS 18.1",
+      "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
+      "query_ms": 54.2,
+      "rows_read": 15872,
       "rows_returned": 15
     },
     {
-      "label": "characterize:baseline:global",
-      "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1)",
-      "query_ms": 31.7,
-      "rows_read": 840,
+      "label": "characterize:baseline:os_version=iOS 18.1",
+      "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
+      "query_ms": 75.9,
+      "rows_read": 15872,
       "rows_returned": 3
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 30.3,
+      "query_ms": 69.8,
+      "rows_read": 1,
+      "rows_returned": 1
+    },
+    {
+      "label": "decompose:window_vs_baseline",
+      "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) UNION ALL SELECT 4 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) ORDER BY weeks_back",
+      "query_ms": 80.1,
+      "rows_read": 4800,
+      "rows_returned": 5
+    },
+    {
+      "label": "localize:requests",
+      "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value UNION ALL SELECT 4 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) GROUP BY dim_name, dim_value",
+      "query_ms": 124.5,
+      "rows_read": 307200,
+      "rows_returned": 320
+    },
+    {
+      "label": "characterize:requests:global",
+      "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) ORDER BY hour",
+      "query_ms": 53.8,
+      "rows_read": 960,
+      "rows_returned": 15
+    },
+    {
+      "label": "characterize:baseline:global",
+      "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1)",
+      "query_ms": 54.8,
+      "rows_read": 960,
+      "rows_returned": 3
+    },
+    {
+      "label": "baseline:data_range",
+      "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
+      "query_ms": 35.2,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) ORDER BY weeks_back",
-      "query_ms": 35.9,
-      "rows_read": 2520,
+      "query_ms": 63.7,
+      "rows_read": 2880,
       "rows_returned": 3
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value",
-      "query_ms": 44.5,
-      "rows_read": 161280,
+      "query_ms": 72.0,
+      "rows_read": 184320,
       "rows_returned": 192
     },
     {
       "label": "characterize:requests:ad_format=native",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 35.5,
-      "rows_read": 8192,
+      "query_ms": 120.1,
+      "rows_read": 15872,
       "rows_returned": 15
     },
     {
       "label": "characterize:baseline:ad_format=native",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 32.9,
-      "rows_read": 8192,
+      "query_ms": 249.4,
+      "rows_read": 15872,
       "rows_returned": 3
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 30.0,
+      "query_ms": 140.1,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) UNION ALL SELECT 4 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) ORDER BY weeks_back",
-      "query_ms": 41.4,
-      "rows_read": 4200,
+      "query_ms": 70.8,
+      "rows_read": 4800,
       "rows_returned": 5
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value UNION ALL SELECT 4 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) GROUP BY dim_name, dim_value",
-      "query_ms": 59.7,
-      "rows_read": 268800,
+      "query_ms": 92.0,
+      "rows_read": 307200,
       "rows_returned": 320
     },
     {
       "label": "characterize:requests:publisher_tier=tier_3",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 35.6,
-      "rows_read": 8192,
+      "query_ms": 65.6,
+      "rows_read": 15872,
       "rows_returned": 15
     },
     {
       "label": "characterize:baseline:publisher_tier=tier_3",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 35.7,
-      "rows_read": 8192,
+      "query_ms": 73.9,
+      "rows_read": 15872,
       "rows_returned": 3
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 31.8,
+      "query_ms": 32.8,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) ORDER BY weeks_back",
-      "query_ms": 39.3,
-      "rows_read": 2520,
+      "query_ms": 275.2,
+      "rows_read": 2880,
       "rows_returned": 3
     },
     {
       "label": "localize:ecpm",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value",
-      "query_ms": 44.8,
-      "rows_read": 161280,
+      "query_ms": 330.7,
+      "rows_read": 184320,
       "rows_returned": 192
     },
     {
       "label": "characterize:ecpm:category=finance",
       "sql": "SELECT hour, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 35.7,
-      "rows_read": 8192,
+      "query_ms": 170.4,
+      "rows_read": 15872,
       "rows_returned": 15
     },
     {
       "label": "characterize:baseline:category=finance",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 33.0,
-      "rows_read": 8192,
+      "query_ms": 74.6,
+      "rows_read": 15872,
       "rows_returned": 3
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 29.5,
+      "query_ms": 60.1,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) UNION ALL SELECT 4 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) ORDER BY weeks_back",
-      "query_ms": 41.0,
-      "rows_read": 4200,
+      "query_ms": 84.5,
+      "rows_read": 4800,
       "rows_returned": 5
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value UNION ALL SELECT 4 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) GROUP BY dim_name, dim_value",
-      "query_ms": 54.0,
-      "rows_read": 268800,
+      "query_ms": 88.0,
+      "rows_read": 307200,
       "rows_returned": 320
     },
     {
       "label": "characterize:requests:device_model=iPhone 15",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String} ORDER BY hour",
-      "query_ms": 36.0,
-      "rows_read": 8192,
+      "query_ms": 109.0,
+      "rows_read": 15872,
       "rows_returned": 15
     },
     {
       "label": "characterize:baseline:device_model=iPhone 15",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) AND dim_name = {dim_name:String} AND dim_value = {dim_value:String}",
-      "query_ms": 32.6,
-      "rows_read": 8192,
+      "query_ms": 63.5,
+      "rows_read": 15872,
       "rows_returned": 3
     },
     {
       "label": "baseline:data_range",
       "sql": "SELECT min(hour) AS first_hour FROM inmobi.events_hourly",
-      "query_ms": 35.1,
+      "query_ms": 50.3,
       "rows_read": 1,
       "rows_returned": 1
     },
     {
       "label": "decompose:window_vs_baseline",
       "sql": "SELECT 0 AS weeks_back, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} UNION ALL SELECT 1 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) UNION ALL SELECT 2 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) UNION ALL SELECT 3 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) UNION ALL SELECT 4 AS weeks_back, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) ORDER BY weeks_back",
-      "query_ms": 43.0,
-      "rows_read": 4200,
+      "query_ms": 88.7,
+      "rows_read": 4800,
       "rows_returned": 5
     },
     {
       "label": "localize:requests",
       "sql": "SELECT 0 AS weeks_back, dim_name, dim_value, sum(requests) AS requests, sum(fills) AS fills, sum(impressions) AS impressions, sum(clicks) AS clicks, sum(revenue) AS revenue FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} AND hour <= {end:DateTime} GROUP BY dim_name, dim_value UNION ALL SELECT 1 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1) GROUP BY dim_name, dim_value UNION ALL SELECT 2 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(2) AND hour <= {end:DateTime} - toIntervalWeek(2) GROUP BY dim_name, dim_value UNION ALL SELECT 3 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(3) AND hour <= {end:DateTime} - toIntervalWeek(3) GROUP BY dim_name, dim_value UNION ALL SELECT 4 AS weeks_back, dim_name, dim_value, sum(requests), sum(fills), sum(impressions), sum(clicks), sum(revenue) FROM inmobi.events_hourly_by_dim WHERE hour >= {start:DateTime} - toIntervalWeek(4) AND hour <= {end:DateTime} - toIntervalWeek(4) GROUP BY dim_name, dim_value",
-      "query_ms": 55.9,
-      "rows_read": 268800,
+      "query_ms": 81.3,
+      "rows_read": 307200,
       "rows_returned": 320
     },
     {
       "label": "characterize:requests:global",
       "sql": "SELECT hour, requests AS metric_value, requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalHour({ctx:UInt16}) AND hour <= {end:DateTime} + toIntervalHour({ctx:UInt16}) ORDER BY hour",
-      "query_ms": 40.3,
-      "rows_read": 840,
+      "query_ms": 62.3,
+      "rows_read": 960,
       "rows_returned": 15
     },
     {
       "label": "characterize:baseline:global",
       "sql": "SELECT requests AS requests, if(requests > 0, fills / requests, 0) AS fill_rate, if(fills > 0, impressions / fills, 0) AS render_rate, (if(impressions > 0, revenue / impressions, 0)) * 1000 AS ecpm FROM inmobi.events_hourly WHERE hour >= {start:DateTime} - toIntervalWeek(1) AND hour <= {end:DateTime} - toIntervalWeek(1)",
-      "query_ms": 32.8,
-      "rows_read": 840,
+      "query_ms": 46.1,
+      "rows_read": 960,
       "rows_returned": 3
     },
     {
       "label": "scan_intersect:regionxdevice_model",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1706.3,
-      "rows_read": 44284320,
-      "rows_returned": 1000
+      "query_ms": 2060.8,
+      "rows_read": 57710976,
+      "rows_returned": 1320
     },
     {
       "label": "scan_intersect:regionxos_version",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1625.4,
-      "rows_read": 44284320,
-      "rows_returned": 1000
+      "query_ms": 2043.1,
+      "rows_read": 57710976,
+      "rows_returned": 1320
     },
     {
       "label": "scan_intersect:regionxcategory",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, dictGetString('inmobi.dict_apps','category', app_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','category', app_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1845.6,
-      "rows_read": 44284320,
-      "rows_returned": 875
+      "query_ms": 2301.5,
+      "rows_read": 57710976,
+      "rows_returned": 1155
     },
     {
       "label": "scan_intersect:regionxpublisher_tier",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1767.2,
-      "rows_read": 44284320,
-      "rows_returned": 375
+      "query_ms": 2181.2,
+      "rows_read": 57710976,
+      "rows_returned": 495
     },
     {
       "label": "scan_intersect:regionxad_format",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1247.2,
-      "rows_read": 44284320,
-      "rows_returned": 625
+      "query_ms": 1755.8,
+      "rows_read": 57710976,
+      "rows_returned": 825
     },
     {
       "label": "scan_intersect:regionxcountry",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','region', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1476.6,
-      "rows_read": 44284320,
-      "rows_returned": 400
+      "query_ms": 2036.7,
+      "rows_read": 57710976,
+      "rows_returned": 528
     },
     {
       "label": "scan_intersect:device_modelxos_version",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1519.9,
-      "rows_read": 44284320,
-      "rows_returned": 800
+      "query_ms": 2003.9,
+      "rows_read": 57710976,
+      "rows_returned": 1056
     },
     {
       "label": "scan_intersect:device_modelxcategory",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, dictGetString('inmobi.dict_apps','category', app_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','category', app_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1991.2,
-      "rows_read": 44284320,
-      "rows_returned": 1400
+      "query_ms": 2284.5,
+      "rows_read": 57710976,
+      "rows_returned": 1848
     },
     {
       "label": "scan_intersect:device_modelxpublisher_tier",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1739.1,
-      "rows_read": 44284320,
-      "rows_returned": 600
+      "query_ms": 2232.6,
+      "rows_read": 57710976,
+      "rows_returned": 792
     },
     {
       "label": "scan_intersect:device_modelxad_format",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1296.6,
-      "rows_read": 44284320,
-      "rows_returned": 1000
+      "query_ms": 1602.5,
+      "rows_read": 57710976,
+      "rows_returned": 1320
     },
     {
       "label": "scan_intersect:device_modelxcountry",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','device_model', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1608.5,
-      "rows_read": 44284320,
-      "rows_returned": 2920
+      "query_ms": 1984.8,
+      "rows_read": 57710976,
+      "rows_returned": 3870
     },
     {
       "label": "scan_intersect:os_versionxcategory",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS va, dictGetString('inmobi.dict_apps','category', app_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','category', app_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1744.8,
-      "rows_read": 44284320,
-      "rows_returned": 1400
+      "query_ms": 2661.9,
+      "rows_read": 57710976,
+      "rows_returned": 1848
     },
     {
       "label": "scan_intersect:os_versionxpublisher_tier",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS va, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1649.2,
-      "rows_read": 44284320,
-      "rows_returned": 600
+      "query_ms": 2235.0,
+      "rows_read": 57710976,
+      "rows_returned": 792
     },
     {
       "label": "scan_intersect:os_versionxad_format",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS va, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1248.1,
-      "rows_read": 44284320,
-      "rows_returned": 1000
+      "query_ms": 1750.7,
+      "rows_read": 57710976,
+      "rows_returned": 1320
     },
     {
       "label": "scan_intersect:os_versionxcountry",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS va, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','os_version', geo_device_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1564.1,
-      "rows_read": 44284320,
-      "rows_returned": 2919
+      "query_ms": 2155.5,
+      "rows_read": 57710976,
+      "rows_returned": 3865
     },
     {
       "label": "scan_intersect:categoryxpublisher_tier",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_apps','category', app_id) AS va, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','category', app_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1694.8,
-      "rows_read": 44284320,
-      "rows_returned": 525
+      "query_ms": 2125.3,
+      "rows_read": 57710976,
+      "rows_returned": 693
     },
     {
       "label": "scan_intersect:categoryxad_format",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_apps','category', app_id) AS va, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','category', app_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1318.1,
-      "rows_read": 44284320,
-      "rows_returned": 875
+      "query_ms": 1728.7,
+      "rows_read": 57710976,
+      "rows_returned": 1155
     },
     {
       "label": "scan_intersect:categoryxcountry",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_apps','category', app_id) AS va, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','category', app_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1778.4,
-      "rows_read": 44284320,
-      "rows_returned": 2785
+      "query_ms": 2317.6,
+      "rows_read": 57710976,
+      "rows_returned": 3681
     },
     {
       "label": "scan_intersect:publisher_tierxad_format",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS va, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, CAST(ad_format AS String) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1463.2,
-      "rows_read": 44284320,
-      "rows_returned": 375
+      "query_ms": 1628.8,
+      "rows_read": 57710976,
+      "rows_returned": 495
     },
     {
       "label": "scan_intersect:publisher_tierxcountry",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS va, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_apps','publisher_tier', app_id) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1676.6,
-      "rows_read": 44284320,
-      "rows_returned": 1200
+      "query_ms": 2280.8,
+      "rows_read": 57710976,
+      "rows_returned": 1584
     },
     {
       "label": "scan_intersect:ad_formatxcountry",
       "sql": "WITH cells AS ( SELECT toDate(event_time) AS day, toDayOfWeek(event_time) AS dow, CAST(ad_format AS String) AS va, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS metric_value, count() AS requests FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, dow, va, vb HAVING requests >= {minreq:UInt32} ), pa AS ( SELECT toDate(event_time) AS day, CAST(ad_format AS String) AS va, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, va ), pb AS ( SELECT toDate(event_time) AS day, dictGetString('inmobi.dict_geo_device','country', geo_device_id) AS vb, (sum(is_filled)) / (count()) AS v FROM inmobi.ad_events WHERE event_time >= {start:DateTime} - toIntervalWeek({weeks:UInt8}) AND event_time <= {end:DateTime} GROUP BY day, vb ) SELECT t.day AS day, t.va AS va, t.vb AS vb, t.metric_value AS actual, t.requests AS requests, quantileExact(0.5)(h.metric_value) AS baseline, any(pa_now.v) AS pa_now, quantileExact(0.5)(pa_hist.v) AS pa_base, any(pb_now.v) AS pb_now, quantileExact(0.5)(pb_hist.v) AS pb_base FROM cells AS t INNER JOIN cells AS h ON t.va=h.va AND t.vb=h.vb AND t.dow=h.dow AND h.day < t.day INNER JOIN pa AS pa_now ON pa_now.day = t.day AND pa_now.va = t.va INNER JOIN pa AS pa_hist ON pa_hist.va = t.va AND toDayOfWeek(pa_hist.day)=t.dow AND pa_hist.day < t.day INNER JOIN pb AS pb_now ON pb_now.day = t.day AND pb_now.vb = t.vb INNER JOIN pb AS pb_hist ON pb_hist.vb = t.vb AND toDayOfWeek(pb_hist.day)=t.dow AND pb_hist.day < t.day WHERE t.day >= toDate({start:DateTime}) GROUP BY day, va, vb, actual, requests",
-      "query_ms": 1252.0,
-      "rows_read": 44284320,
-      "rows_returned": 1996
+      "query_ms": 1857.3,
+      "rows_read": 57710976,
+      "rows_returned": 2636
     }
   ],
   "narrations": {
     "1": {
-      "text": "Between 2026-06-23 00:00:00 and 2026-06-25 23:00:00 (72 hours), revenue was essentially flat at -0.002%, but fill rate fell 4.4%, from a baseline of 0.7854 to 0.7508, accounting for 22.2% of the movement. The other factors did not contribute: requests were up 4.4% (843,741 vs 808,472 baseline, share -21.1%), eCPM was effectively unchanged at 2.4756 vs 2.4748 (+0.03%), and render rate was flat at 0.9801.\n\nThe movement is localized to fill rate on os_version = Android 15, which moved -44.9% against -4.4% globally, carrying 100% of the unexplained movement and 88% of the whole incident. A secondary concentration appears in region = EU, which moved -7.1% and accounts for 15% of the incident. The shape is a clean step, not a slide: fill rate for Android 15 went from 0.7846 to 0.4439 within the single hour at 2026-06-23 00:00:00, with 96% of the total movement landing in that hour, exactly on a day boundary. It reversed just as sharply at 2026-06-26 00:00:00 (0.4310 to 0.7962, step fraction 1.0) after exactly 3 days, while requests, render_rate and eCPM held steady throughout. Interpretation: a step on a day boundary that reverses after a whole number of days is consistent with something that schedules in days \u2014 a campaign flight with a defined end date, a config push, or a nightly job \u2014 rather than an organic degradation or a fix.\n\nChecked and cleared: publisher_tier was uniform (all 3 values within 0.2% of the global -4.4%; largest outlier explains 1.6% of the incident), ad_format uniform (all 5 within 0.4%; largest outlier 1.5%), and category uniform (all 7 within 0.5%; largest outlier 1.4%). device_model and country were inconclusive \u2014 Redmi Note 12 leads device_model with 31% of unexplained movement and ES leads country with 29%, both under the 50% concentration bar, and ES explains only 7% of the incident, under the 10% materiality bar. vertical and campaign_type are not applicable, since every value holds the same fill rate. The evidence also rules out a traffic or tracking problem: request volume was unchanged, so the same demand arrived and was handled differently. Next, pull the Android 15 demand-side configuration and any campaign flights or targeting rules with a 2026-06-23 to 2026-06-26 date range, and check the EU concentration against the same schedule.",
+      "text": "Between 2026-07-06 00:00:00 and 2026-07-10 21:00:00 \u2014 a 118-hour window \u2014 revenue fell 2.12%. The movement is almost entirely a pricing effect: eCPM came in at 2.2403 against a baseline of 2.4656, a 9.14% decline, accounting for 4.4643 of the share of movement. Requests actually rose 8.59% (1,483,235 vs 1,365,958 baseline), offsetting part of the damage at -3.8379 share. Fill rate was essentially flat at 0.7685 vs 0.7746 (-0.79%), and render rate was unchanged at 0.9799 vs 0.9800 (-0.01%).\n\nThe incident is localized. Video ad format moved -18.0% against -9.4% globally, carrying 100% of the unexplained movement and 29% of the whole incident. Two correlated slices show up beneath it: Android 12 at -17.2% versus -9.3% globally (73% of unexplained movement, 20% of the incident) and iPhone 14 at -22.3% versus -9.2% globally (66% of unexplained movement, 18% of the incident). The shape of the transition in video eCPM is gradual, not a single step: the onset at 2026-07-06 00:00:00 took it from 6.520218 to 6.102399 (-0.417818), with the largest single hour carrying only 34.31% of the change. It recovers gradually from 2026-07-10 23:00:00, 4.126668 to 4.297747 (+0.171079, step fraction 15.48%). Interpretation: the gradual profile is consistent with a rollout or progressive degradation rather than one instantaneous change, but the onset lands exactly on a day boundary, which is consistent with something that schedules in days \u2014 a campaign flight, a config push, a nightly job \u2014 rather than an organic failure.\n\nChecked and cleared: publisher_tier was uniform, all 3 values within 0.5% of the global -9.1%, largest outlier explaining 1.1% of the incident; category uniform across all 7 values within 3.7% of the global -9.3%, largest outlier 0.8%; campaign_type uniform across all 4 values within 9.1% of -9.1%, largest outlier 0.6%; vertical uniform across all 8 values within 9.1% of -9.1%, largest outlier 0.3%. Region and country were inconclusive \u2014 NAM and US lead their dimensions but each carries 0% of the unexplained movement, below the 50% concentration bar, so the movement is spread rather than concentrated geographically. Fill rate and render rate held steady throughout, so this is not a delivery or rendering failure. Next step: look at video demand on the 07-06 day boundary \u2014 campaign flights starting or ending, bidder or floor-price config pushed that day, and whether the Android 12 / iPhone 14 concentration reflects a specific video SDK version or inventory pool rather than independent device effects.",
       "model": "claude-opus-5",
       "all_numbers_verified": true,
       "unverified_numbers": []
     },
     "2": {
-      "text": "Revenue fell 44.81% over the 24-hour window from 2026-06-21 00:00:00 to 2026-06-21 23:00:00. The movement is almost entirely an upstream volume story: requests came in at 126,052 against a baseline of 223,079, a 43.49% decline accounting for 96.03% of the total movement. eCPM contributed marginally at 2.4186 vs 2.4771 baseline (-2.36%, 4.02% of movement), while fill rate (0.7855 vs 0.7849, +0.08%) and render rate (0.9794 vs 0.9798, -0.05%) were flat.\n\nNo segment is responsible \u2014 the drop was uniform across every dimension tested. The shape is a clean switch, not a degradation: requests stepped from 6,503 to 3,651 within the single hour at 2026-06-21 00:00:00, with 100% of the movement landing in that one hour, exactly on a day boundary. It reversed just as sharply at 2026-06-22 00:00:00, from 3,603 to 8,132, after exactly one day. Fill rate, render rate and eCPM held steady throughout. Interpretation: this pattern is consistent with something that schedules in whole days \u2014 a campaign flight with a defined end date, a config push, or a nightly job \u2014 rather than an organic failure or a fix.\n\nRuled out: publisher_tier (3 values, all within 0.7% of global -43.5%), ad_format (5 values, within 1.0%), category (7 values, within 1.4%), vertical (8 values, within 2.2%), os_version (8 values, within 0.8%), device_model (8 values, within 1.0%), region (5 values, within 0.7%), country (16 values, within 2.9%), and campaign_type (4 values, within 0.2%) \u2014 in every case the largest outlier explains 0.3% or less of the incident. The evidence also rules out a supply- or demand-quality problem: everything that did arrive filled and rendered normally, so the issue is that fewer requests arrived at all. Next step: check what was scheduled to start and end on 2026-06-21 \u2014 campaign flight dates, traffic-shaping or budget configs pushed at midnight, and any nightly job that ran once and reverted.",
+      "text": "Between 2026-06-23 00:00:00 and 2026-06-25 23:00:00 \u2014 a 72-hour window \u2014 revenue moved -0.2%. The movement sits almost entirely in fill rate, which fell from a baseline of 0.7854 to 0.7508, a -4.4% change accounting for 22.2 of the share of movement. Requests actually rose 4.4% (808,472 to 843,741), eCPM was flat at 2.4756 versus 2.4748 (+0.03%), and render rate was unchanged at 0.9801.\n\nThis was localized, not broad. Android 15 moved -44.9% against the global -4.4%, carrying 100% of the unexplained movement and 88% of the whole incident; EU moved -7.1% and carries 15% of the incident. The shape is a switch, not a slide: fill rate for Android 15 went from 0.7846 to 0.4439 within the single hour at 2026-06-23 00:00:00, with 96% of the total movement landing in that one hour, and it reversed just as sharply at 2026-06-26 00:00:00 (0.4310 to 0.7962, 100% step). Both transitions land exactly on a day boundary and the episode lasted exactly 3 days. Requests, render rate and eCPM held steady throughout. Interpretation: this is consistent with something that schedules in days \u2014 a campaign flight, a config push, a nightly job \u2014 with a defined end date, rather than an organic failure that was later fixed.\n\nRuled out or cleared: publisher_tier (all 3 values within 0.2% of the global -4.4%, largest outlier explains 1.6%), ad_format (all 5 within 0.4%, largest outlier 1.5%), and category (all 7 within 0.5%, largest outlier 1.4%) all moved uniformly. Device model is inconclusive \u2014 Redmi Note 12 leads but at 31% of unexplained movement, under the 50% concentration bar; country is likewise inconclusive \u2014 ES leads at 29%, and explains only 7% of the incident, under the 10% materiality bar. Vertical and campaign_type are not applicable, since every value holds the same fill rate. The evidence rules out a traffic or tracking problem: request volume was unchanged, so the same demand arrived and was handled differently. Next step is to pull anything with a 2026-06-23 to 2026-06-26 date range scoped to Android 15 \u2014 bidder or demand-partner targeting rules, SDK/config flights, and EU-region eligibility settings.",
       "model": "claude-opus-5",
       "all_numbers_verified": true,
       "unverified_numbers": []
     },
     "3": {
-      "text": "Revenue rose 6.03% over the 68-hour window from 2026-06-28 04:00 to 2026-06-30 23:00. The movement is essentially entirely a request-volume story: requests came in at 780,742 against a baseline of 733,766, up 6.4%, accounting for 105.99% of the total movement. The other factors barely moved \u2014 fill rate 0.7758 vs 0.7846 (-1.12%, -19.24% of movement), eCPM 2.4914 vs 2.4716 (+0.8%, +13.63%), and render rate 0.9798 vs 0.98 (-0.02%).\n\nNo segment is responsible \u2014 the change was global. Every dimension tested came back uniform: vertical (all 8 values within 4.3% of the global +6.4%), device_model (8 values within 0.8%), os_version (8 within 0.9%), country (16 within 1.8%), ad_format (5 within 0.6%), region (5 within 0.3%), category (7 within 0.7%), and publisher_tier (3 within 0.1%). The shape was gradual, not a step: onset at 2026-06-28 05:00 took hourly requests from 8,610 to 9,723 (+1,113), with the largest single hour carrying only 24.4% of the change; recovery was likewise gradual from 2026-07-01 04:00 (9,598 to 10,719, +1,121, step fraction 61.16%), and neither boundary aligned to a day boundary. Interpretation: this ramp profile is consistent with a rollout or progressive change in upstream request volume rather than a single discrete switch.\n\nRuled out: campaign_type was inconclusive \u2014 CPM leads the dimension but its excess is 0% of the unexplained movement, below the 50% concentration bar, and it explains only 9% of the incident, under the 10% materiality bar. All other dimensions were uniform, with largest outliers explaining between 0.2% and 4.5% of the incident. Because fill_rate, render_rate and eCPM held steady throughout, a supply or demand-quality problem is excluded \u2014 everything that arrived filled and rendered normally, so the change is purely in how many requests arrived. Next step is to look upstream of the auction at traffic sources and SDK/app-side request generation, and at anything rolling out progressively starting around 2026-06-28 05:00 and unwinding around 2026-07-01 04:00.",
+      "text": "Revenue fell 44.81% over the 24-hour window from 2026-06-21 00:00:00 to 2026-06-21 23:00:00. The movement is almost entirely a volume story: requests came in at 126,052 against a baseline of 223,079, a drop of 43.49%, accounting for 96.03% of the total movement. eCPM contributed a marginal 4.02% (2.4186 vs 2.4771, -2.36%), while fill rate (0.7855 vs 0.7849, +0.08%) and render rate (0.9794 vs 0.9798, -0.05%) were effectively flat.\n\nNo segment is responsible \u2014 the drop was uniform across every dimension tested. The shape is the informative part: requests stepped from 6,503 to 3,651 within the single hour beginning 2026-06-21 00:00:00, with 100% of the movement landing in that one hour, and stepped back from 3,603 to 8,132 at 2026-06-22 00:00:00, again entirely within one hour. Both transitions land exactly on a day boundary and the affected span is exactly 24 hours. Interpretation: this is consistent with something that schedules in whole days \u2014 a campaign flight with a defined end date, a config push, or a nightly job \u2014 rather than an organic degradation or a failure that was later fixed.\n\nRuled out: publisher_tier (3 values, all within 0.7% of the global -43.5%), ad_format (5 values, within 1.0%), category (7 values, within 1.4%), vertical (8 values, within 2.2%), os_version (8 values, within 0.8%), device_model (8 values, within 1.0%), region (5 values, within 0.7%), country (16 values, within 2.9%), and campaign_type (4 values, within 0.2%) \u2014 in every case the largest outlier explains at most 0.3% of the incident. The steady fill, render and eCPM also rule out a supply- or demand-quality problem: everything that did arrive filled and rendered normally, so the issue is that fewer requests arrived at all. Next step is to look upstream of the auction for anything with a 2026-06-21 00:00:00 start and 2026-06-22 00:00:00 end \u2014 campaign flight dates, traffic-shaping or throttle configuration deployed on that boundary, and scheduled jobs that ran for exactly that day.",
+      "model": "claude-opus-5",
+      "all_numbers_verified": true,
+      "unverified_numbers": []
+    },
+    "4": {
+      "text": "Between 2026-06-28 04:00 and 2026-06-30 23:00 \u2014 a 68-hour window \u2014 revenue ran +6.03% above baseline. The movement is almost entirely a volume story: requests came in at 780,742 against a baseline of 733,766, +6.4%, accounting for 105.99% of the total movement. The other factors barely participated: fill rate slipped from 0.7846 to 0.7758 (-1.12%, -19.24% of movement), eCPM rose from 2.4716 to 2.4914 (+0.8%, 13.63%), and render rate was flat at 0.9798 versus 0.98 (-0.02%).\n\nNo segment is responsible \u2014 the lift was global and uniform. The shape is a gradual ramp, not a step: onset at 2026-06-28 05:00 moved hourly requests from 8,610 to 9,723 (+1,113), with the largest single hour carrying only 24.4% of the change, and it does not align to a day boundary. Recovery is likewise gradual, beginning 2026-07-01 04:00 (9,598 to 10,719, +1,121, largest hour 61.16%). Interpretation: this profile is consistent with a progressive rollout or a ramping traffic source rather than a single switched change, and fill rate, render rate and eCPM all held steady throughout \u2014 meaning the extra requests monetized exactly like the existing ones.\n\nNine dimensions were checked and cleared. Vertical (8 values, all within 4.3% of the global +6.4%, largest outlier 4.5% of the incident), device_model (within 0.8%, 1.6%), os_version (within 0.9%, 1.3%), country (16 values within 1.8%, 1.1%), ad_format (within 0.6%, 1.1%), region (within 0.3%, 1.1%), category (within 0.7%, 0.8%) and publisher_tier (within 0.1%, 0.2%) all moved together. Campaign_type was inconclusive: CPM leads but its excess is 0% of the unexplained movement, below the 50% concentration bar, and it explains 9% of the incident, below the 10% materiality bar. The evidence rules out a supply or demand-quality problem \u2014 everything that arrived filled and rendered normally, so the change is purely in how many requests arrived. Next step: look upstream of the auction for a traffic-side change starting around 2026-06-28 05:00 and unwinding around 2026-07-01 04:00 \u2014 SDK or app version rollouts, a new or re-enabled integration, or bidder/exchange-side request pacing \u2014 since nothing in the reported dimensions localizes it.",
       "model": "claude-opus-5",
       "all_numbers_verified": true,
       "unverified_numbers": []
     }
   },
-  "runtime_seconds": 70.2
+  "runtime_seconds": 101.3
 }

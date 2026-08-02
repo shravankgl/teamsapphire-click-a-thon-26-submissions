@@ -65,6 +65,6 @@ The bonus criterion from the problem statement. Every dimension was tested with 
 
 **Exported:** [`../traces/3404ac2b4a1fe0335949654f8330fe43.json`](../traces/3404ac2b4a1fe0335949654f8330fe43.json) · [readable summary](../traces/3404ac2b4a1fe0335949654f8330fe43.md)
 
-Every stage above appears in the trace with its SQL, rows read, timing and verdict — including the branches that were ruled out.
+Every stage above appears in the trace in order, with its inputs, verdict and timing — including the branches that were ruled out. The SQL for every number is in `queries.md`, not in the trace.
 
 *Our Langfuse runs on a private VM, so the in-app link (`http://100.77.198.37:3000/project/clickathon-project/traces/3404ac2b4a1fe0335949654f8330fe43`) is not reachable from outside our network. The export above is the same object the Langfuse UI renders, committed so it can be read without access to our infrastructure.*

@@ -88,7 +88,8 @@ class Incident:
     Hours are the wrong unit to alarm on. Measured against the training window,
     hourly CTR flagged 102 of 600 hours scattered across nearly every day —
     clicks are only 0.83% of requests, so hourly CTR is inherently volatile and
-    alarming per-hour is precisely the "crying wolf" the rubric penalises.
+    alarming per-hour is precisely the "crying wolf" that destroys trust in an
+    alerting system.
 
     An incident is the honest unit: a sustained run of deviation. It suppresses
     isolated noise while a genuine event — 24 consecutive hours of revenue at
@@ -270,7 +271,7 @@ def cluster_incidents(
     """Group flagged hours into incidents; report what was discarded as noise.
 
     Returns (incidents, discarded) — the discarded runs are kept because
-    "we saw this and judged it noise" is itself evidence a judge can check,
+    "we saw this and judged it noise" is itself evidence a reader can check,
     and silently dropping findings is indistinguishable from missing them.
     """
     from datetime import datetime

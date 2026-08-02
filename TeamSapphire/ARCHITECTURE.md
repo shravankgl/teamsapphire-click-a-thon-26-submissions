@@ -89,7 +89,7 @@ excess         = actual_delta − expected_delta
 
 **Shape of the transition.** Step vs. gradual (what fraction of the change landed in the largest single hour), whether onset aligns with a day boundary, duration, whether it reversed, and which factors held steady. This is where "why" lives: a one-hour step on a day boundary that self-reverts after exactly three days with volume untouched is consistent with a *scheduled, demand-side change with an end date* — not a degradation.
 
-**Explainability over sophistication.** No ML, no black box. Every verdict is a comparison between two numbers a judge can recompute from the queries in [`artifacts/queries.md`](artifacts/queries.md).
+**Explainability over sophistication.** No ML, no black box. Every verdict is a comparison between two numbers, both recomputable from the queries in [`artifacts/queries.md`](artifacts/queries.md).
 
 ---
 
@@ -98,7 +98,7 @@ excess         = actual_delta − expected_delta
 | Product | What it does here | Depth |
 |---|---|---|
 | **ClickHouse** | The only analytical store. Raw `MergeTree` + 2 `SummingMergeTree` rollups + 3 dictionaries. 111 queries and 934M rows per investigation | Core |
-| **Langfuse** | A span per stage carrying its SQL, rows read, timing and verdict — **including the ruled-out branches**. The trace is the evidence that our system produced the answer, not a human | Meaningful |
+| **Langfuse** | A span per stage carrying its inputs, verdict and timing — **including the ruled-out branches**. The SQL itself lives in [`artifacts/queries.md`](artifacts/queries.md); the trace shows *what was checked, in what order, and why*, which is the evidence that our system produced the answer rather than a human | Meaningful |
 | **LibreChat + ClickHouse MCP** | A saved *InMobi Analytics* agent with a fixed system prompt and the MCP tool, querying the same tables read-only (`mcp_agent`, verified unable to write) | Meaningful |
 | **ClickStack / HyperDX** | OTel traces of the FastAPI service, plus a dashboard charting the rollups directly — so the anomalies are visible as raw shapes, independent of our engine's claims about them | Working |
 

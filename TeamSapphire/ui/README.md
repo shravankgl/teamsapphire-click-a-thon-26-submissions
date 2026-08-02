@@ -1,6 +1,6 @@
 # InMobi RCA — incident view
 
-The one screen from `PARTNER_BRIEF.md`: incident list + metric tree + funnel +
+One screen: incident list + metric tree + funnel +
 diagnosis + ruled-out ledger + latency badge. Vite + React + TypeScript +
 shadcn/ui + ECharts.
 

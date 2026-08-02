@@ -2,15 +2,15 @@
 
 Generated from the run itself by [`../scripts/build_artifacts.py`](../scripts/build_artifacts.py)
 and [`../scripts/export_trace.py`](../scripts/export_trace.py). Nothing here is
-hand-written: on Sunday the unseen incident has to produce the same set in
-minutes, and anything hand-assembled under time pressure would be wrong.
+hand-written, so that any run reproduces the same set of artifacts from its own
+output rather than depending on someone to assemble them correctly.
 
 | | |
 |---|---|
 | [`diagnoses/`](diagnoses/) | One file per detected incident — plain-language diagnosis, factor decomposition, the segment named (or that none is), transition shape, and the full ruled-out ledger |
 | [`queries.md`](queries.md) | **All 111 queries** with exact SQL, rows read and timing. Every number in every diagnosis comes from one of these |
 | [`compound-segments.md`](compound-segments.md) | The 27 two-dimension findings, each with both parents' movement for comparison |
-| [`traces/`](traces/) | Exported Langfuse traces — every stage with its SQL, rows, timing and verdict, including the ruled-out branches |
+| [`traces/`](traces/) | Exported Langfuse traces — every stage in order with its inputs, verdict and timing, including the ruled-out branches. The SQL is in [`queries.md`](queries.md), not the trace |
 | [`unseen/`](unseen/) | The unseen-incident bundle |
 
 ## The three anomalies found in the main dataset

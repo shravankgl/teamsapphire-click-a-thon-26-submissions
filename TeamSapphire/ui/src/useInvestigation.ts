@@ -8,7 +8,7 @@ import type { Investigation } from "@/types";
 // more here than in most projects: this system's entire claim is that every
 // number on screen was computed from the data, so a plausible-looking
 // hand-written fixture would be the one thing capable of putting a fabricated
-// figure in front of a judge.
+// figure in front of a reader.
 //
 // The fallback exists so the UI still renders if the API is down mid-demo, and
 // `usingFallback` is surfaced in the UI so nobody can mistake a cached run for

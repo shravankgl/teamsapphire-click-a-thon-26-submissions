@@ -34,7 +34,7 @@ This does the drilling. Point it at a window and in about a minute it returns a 
 
 The incident view showing all five detected events, the responsible segments, the ruled-out ledger for every dimension, the compound findings, and the query-latency envelope.
 
-It fetches the live API first and falls back to a committed snapshot of a real `./investigate.sh` run — so the hosted version shows genuine engine output with no backend, and says so in a banner rather than passing a cached run off as live. That snapshot is regenerated from the harness, never hand-authored: this system's whole claim is that every number was computed from the data, so a plausible-looking hand-written fixture would be the one thing capable of putting a fabricated figure in front of a judge.
+It fetches the live API first and falls back to a committed snapshot of a real `./investigate.sh` run — so the hosted version shows genuine engine output with no backend, and says so in a banner rather than passing a cached run off as live. That snapshot is regenerated from the harness, never hand-authored: this system's whole claim is that every number was computed from the data, so a plausible-looking hand-written fixture would be the one thing capable of putting a fabricated figure on screen.
 
 ## Demo Video
 

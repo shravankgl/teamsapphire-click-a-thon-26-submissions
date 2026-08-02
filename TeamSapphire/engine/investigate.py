@@ -17,7 +17,7 @@ The scans return incidents, not events, and one real event produces a great many
 incidents. On 2026-06-21 a single platform-wide traffic loss surfaced as 2 global
 incidents plus 225 segment ones — every dimension value dropped ~45%, so every
 one of them tripped independently. Reporting 227 findings for one event would be
-noise dressed as thoroughness, and a judge reading it could not tell how many
+noise dressed as thoroughness, and a reader could not tell how many
 things actually went wrong.
 
 Overlapping incidents are therefore merged into a single event, and the

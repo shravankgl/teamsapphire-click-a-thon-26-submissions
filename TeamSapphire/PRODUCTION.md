@@ -1,6 +1,6 @@
 # Production — what changes with real-time ingestion, and what doesn't
 
-`investigate.sh` is a **convenience wrapper, not the system**. It exists because on hackathon Sunday someone needs one command that works at 09:15 on four hours' sleep. The system underneath it is a library, and the shell script is one of four ways to drive it.
+`investigate.sh` is a **convenience wrapper, not the system**. It exists so that a full investigation is one command with no remembered steps — which is what makes it safe to put behind an alert hook or a cron entry. The system underneath it is a library, and the shell script is one of four ways to drive it.
 
 This document answers: if data streams in continuously instead of arriving as a file, what actually has to change?
 
@@ -122,12 +122,12 @@ At ~$0.026 per narration, one incident per hour is trivial and one per minute is
 
 ## 4. What we would add before calling it production
 
-Honest list — none of these are built, and none are needed for the hackathon:
+Honest list — none of these are built:
 
 - **Incident state table.** Persist open/resolved incidents so dedup survives restarts and an all-clear can be sent
 - **Backfill-aware baselines.** Late-arriving events mutate hours already analysed; the current design assumes append-only
 - **Per-tenant isolation.** One publisher's traffic collapse shouldn't page everyone
-- **Alert routing.** The diagnosis is produced; delivering it to PagerDuty/Slack is not built (and is explicitly out of scope for the hackathon)
+- **Alert routing.** The diagnosis is produced; delivering it to PagerDuty/Slack is not built
 - **Threshold tuning per metric.** Currently one global gate; production would tune per metric and per segment volume
 - **HyperDX/OTel instrumentation of the API** — two lines, would make pipeline latency visible alongside LLM latency
 

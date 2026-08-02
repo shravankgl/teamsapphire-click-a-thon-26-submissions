@@ -7,7 +7,8 @@ trace_url written into diagnosis.json — and Langfuse's own "share" links, whic
 are just unauthenticated URLs on the same host — are unreachable to anyone
 outside the tailnet. The InMobi guidelines accept "shared *or exported* traces",
 and "no trace, no credit" applies to the unseen incident, so exporting is not a
-convenience: it is the only form of the evidence a judge can actually open.
+convenience: it is the only form of the evidence a reader outside our network
+can actually open.
 
 Writes the full trace with every observation, so a reader can follow what was
 checked, in what order, and why — including the branches that were ruled out.
@@ -61,6 +62,9 @@ def summarise(trace: dict) -> str:
         "reachable from outside our network. This is the full export — every span,",
         "in order, with its input, output and timing. It is the same object the",
         "Langfuse UI renders.",
+        "",
+        "The trace records *what was checked, in what order, and with what verdict*.",
+        "The SQL behind every number is in `queries.md` alongside it, not in the span.",
         "",
         "## Stages, in execution order",
         "",

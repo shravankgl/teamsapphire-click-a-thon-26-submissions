@@ -3,12 +3,12 @@
 The InMobi guidelines ask for the plain-language diagnosis, the segments named,
 every cited number reproducible from ClickHouse queries *with the queries
 included*, and the ruled-out ledger per investigation. All of that is already in
-diagnosis.json — this only reshapes it into files a judge can read without
+diagnosis.json — this only reshapes it into files a reader can follow without
 running anything.
 
-It is a script rather than hand-written markdown for one reason: on Sunday the
-unseen incident has to produce the same artifacts in minutes, and anything
-hand-assembled at 09:15 will be wrong.
+It is a script rather than hand-written markdown so that every run reproduces the
+same artifacts from its own output, with no opportunity for a transcription
+error between what was computed and what is published.
 
     python scripts/build_artifacts.py out/diagnosis.json <output-dir>
 """
@@ -171,8 +171,9 @@ def render_event(idx: int, ev: dict, narration: dict | None, trace_url: str | No
         L += ["## Trace", "",
               f"**Exported:** [`../traces/{tid}.json`](../traces/{tid}.json) "
               f"· [readable summary](../traces/{tid}.md)", "",
-              "Every stage above appears in the trace with its SQL, rows read, timing and "
-              "verdict — including the branches that were ruled out.", "",
+              "Every stage above appears in the trace in order, with its inputs, verdict "
+              "and timing — including the branches that were ruled out. The SQL for "
+              "every number is in `queries.md`, not in the trace.", "",
               f"*Our Langfuse runs on a private VM, so the in-app link "
               f"(`{trace_url}`) is not reachable from outside our network. The export "
               f"above is the same object the Langfuse UI renders, committed so it can be "

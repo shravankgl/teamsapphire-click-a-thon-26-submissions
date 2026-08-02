@@ -15,12 +15,26 @@ function App() {
   const { investigation, usingFallback, error, isLoading } = useInvestigation();
   const [selected, setSelected] = useState(0);
 
+  // On the hosted build there is no API by design, so "unreachable" would read
+  // as a fault rather than the expected state. VITE_STATIC distinguishes the two:
+  // a local run with a configured API that stops responding still says so.
+  const isStatic = import.meta.env.VITE_STATIC === "1";
   const fallbackBanner = usingFallback ? (
-    <div className="bg-amber-500/10 border-b border-amber-500/30 px-4 py-1.5 text-xs text-amber-600 dark:text-amber-400">
-      API unreachable — showing a cached investigation from{" "}
-      <span className="font-mono">{investigation?.window_start}</span>. Numbers are
-      from a real run, but not a live one.
-    </div>
+    isStatic ? (
+      <div className="border-b border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-xs text-sky-700 dark:text-sky-300">
+        Static demo — no backend attached. Showing a completed investigation over{" "}
+        <span className="font-mono">{investigation?.window_start}</span> →{" "}
+        <span className="font-mono">{investigation?.window_end}</span>, exported verbatim
+        from a real <span className="font-mono">./investigate.sh</span> run. Every number
+        here was computed by the engine from ClickHouse.
+      </div>
+    ) : (
+      <div className="border-b border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs text-amber-600 dark:text-amber-400">
+        API unreachable — showing a cached investigation from{" "}
+        <span className="font-mono">{investigation?.window_start}</span>. Numbers are
+        from a real run, but not a live one.
+      </div>
+    )
   ) : null;
 
   if (isLoading) {

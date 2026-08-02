@@ -51,7 +51,7 @@ export function RuledOutList({ ruledOut }: { ruledOut: RuledOutEntry[] }) {
                 <TableCell className="align-top text-left text-muted-foreground">{v.top_value}</TableCell>
                 {/* The TableCell primitive sets whitespace-nowrap, so a long
                     reason overflows into a horizontal scroll instead of
-                    wrapping — and the half a judge needs is the half off
+                    wrapping — and the half a reader needs is the half off
                     screen. Override it and give the column room. */}
                 <TableCell className="w-1/2 whitespace-normal align-top text-left leading-snug text-muted-foreground">
                   {v.reason}

@@ -30,7 +30,7 @@ Each factor's share of the total log movement is therefore exact and additive,
 summing to 100% with no interaction term left over. Attributing multiplicative
 change with subtraction instead produces cross-terms that have to be silently
 dropped or arbitrarily allocated — which is exactly the sort of quiet fudge that
-turns into a number a judge cannot reproduce.
+turns into a number nobody can reproduce.
 """
 import math
 from dataclasses import dataclass, asdict

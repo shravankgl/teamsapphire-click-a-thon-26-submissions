@@ -3,7 +3,7 @@
 
 This is what executes for the unseen incident. It must run cold and unattended,
 so everything it needs is either a flag or inferred from the data — there is no
-step that expects a human to remember something at 09:15 on four hours' sleep.
+step that expects a human to remember something under pressure.
 
 Writes to out/:
     diagnosis.json  — the full structured investigation, every number and query

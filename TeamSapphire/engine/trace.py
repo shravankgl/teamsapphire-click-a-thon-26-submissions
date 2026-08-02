@@ -7,7 +7,7 @@ trace and follow the investigation: what was checked, in what order, and why.
 So the trace is not decoration around an LLM call — the LLM is one span near the
 end. Every deterministic stage emits a span carrying the SQL it ran, the rows it
 read, how long it took, and the verdict it reached. Crucially the *ruled-out*
-branches are spans too: a judge should be able to see that seasonality was
+branches are spans too: a reader should be able to see that seasonality was
 considered and cleared, not just that a culprit was named.
 
 Tracing is best-effort by design. If Langfuse is unreachable the investigation

@@ -2,7 +2,7 @@
 
 MOTIVATION
 ----------
-Mentor review, 1 Aug: *"the real question isn't 'did it move?' — an alert
+The question this stage exists to answer: *"the real question isn't 'did it move?' — an alert
 already answers that. The question is 'why?'"*
 
 Fair. Naming the factor and the segment is a sharper "what", not a "why".
