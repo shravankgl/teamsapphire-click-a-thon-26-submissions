@@ -97,7 +97,11 @@ function App() {
                 </TabsList>
 
                 <TabsContent value="metric-tree">
-                  <MetricTree decomposition={event.decomposition} />
+                  <MetricTree
+                    decomposition={event.decomposition}
+                    classification={event.classification}
+                    responsible={event.responsible}
+                  />
                 </TabsContent>
                 <TabsContent value="funnel">
                   <FunnelChart actual={event.decomposition.actual} baseline={event.decomposition.baseline} />

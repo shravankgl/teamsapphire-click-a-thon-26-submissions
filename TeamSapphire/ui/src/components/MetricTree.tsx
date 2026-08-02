@@ -1,7 +1,7 @@
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 import type { EChartsOption } from "echarts";
 import echarts, { EChartsReactCore } from "@/echarts-setup";
-import type { Decomposition, Factor } from "@/types";
+import type { Decomposition, DimensionVerdict, Factor } from "@/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const FACTOR_LABEL: Record<Factor, string> = {
@@ -35,7 +35,95 @@ function formatValue(factor: Factor, value: number): string {
   return `${(value * 100).toFixed(2)}%`;
 }
 
-export function MetricTree({ decomposition }: { decomposition: Decomposition }) {
+function pct(v: number): string {
+  return `${v >= 0 ? "+" : ""}${(v * 100).toFixed(1)}%`;
+}
+
+// Same "what moved, why" the engine's headline sentence carries (engine/investigate.py
+// _headline), rebuilt as labelled rows instead of one dense sentence — a segment name
+// buried mid-clause reads slower than the same fact pulled onto its own line.
+function WhatWhy({
+  classification,
+  revenuePctChange,
+  primaryFactor,
+  factors,
+  responsible,
+}: {
+  classification: "localized" | "global" | "unattributed";
+  revenuePctChange: number;
+  primaryFactor: Factor;
+  factors: Decomposition["factors"];
+  responsible: DimensionVerdict[];
+}) {
+  const revenueUp = revenuePctChange >= 0;
+  const primaryMove = factors.find((f) => f.factor === primaryFactor)?.pct_change ?? 0;
+  const factorLabel = FACTOR_LABEL[primaryFactor];
+  const verb = primaryMove >= 0 ? "rose" : "fell";
+
+  let why: ReactNode;
+  if (classification === "localized" && responsible[0]) {
+    const top = responsible[0];
+    const seg = top.segments[0];
+    why = (
+      <>
+        <strong className="font-semibold">{factorLabel}</strong> {seg.pct_change >= 0 ? "rose" : "fell"}{" "}
+        <strong className="font-semibold">{pct(seg.pct_change)}</strong> in{" "}
+        <span className="rounded bg-foreground/10 px-1.5 py-0.5 font-mono text-[13px]">
+          {top.dim_name} = {top.top_value}
+        </span>
+        , vs {pct(primaryMove)} platform-wide.
+      </>
+    );
+  } else if (classification === "global") {
+    why = (
+      <>
+        <strong className="font-semibold">{factorLabel}</strong> {verb}{" "}
+        <strong className="font-semibold">{pct(primaryMove)}</strong> uniformly across every dimension — no
+        single segment responsible.
+      </>
+    );
+  } else {
+    why = (
+      <>
+        <strong className="font-semibold">{factorLabel}</strong> {verb}{" "}
+        <strong className="font-semibold">{pct(primaryMove)}</strong>, but no dimension met the attribution
+        bar.
+      </>
+    );
+  }
+
+  return (
+    <div
+      className="rounded-lg border p-4"
+      style={{ borderColor: "#d03b3b66", backgroundColor: "#d03b3b0d" }}
+    >
+      <div className="flex items-baseline gap-2">
+        <span className="w-10 shrink-0 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+          What
+        </span>
+        <span className="text-xl font-bold" style={{ color: revenueUp ? "#0ca30c" : "#d03b3b" }}>
+          Revenue {pct(revenuePctChange)}
+        </span>
+      </div>
+      <div className="mt-2 flex items-start gap-2">
+        <span className="mt-0.5 w-10 shrink-0 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+          Why
+        </span>
+        <p className="text-sm leading-relaxed text-foreground/90">{why}</p>
+      </div>
+    </div>
+  );
+}
+
+export function MetricTree({
+  decomposition,
+  classification,
+  responsible,
+}: {
+  decomposition: Decomposition;
+  classification?: "localized" | "global" | "unattributed";
+  responsible?: DimensionVerdict[];
+}) {
   const factors = decomposition.factors;
   const ordered = useMemo(
     () => [...factors].sort((a, b) => FACTOR_ORDER.indexOf(a.factor) - FACTOR_ORDER.indexOf(b.factor)),
@@ -97,6 +185,15 @@ export function MetricTree({ decomposition }: { decomposition: Decomposition }) 
         <CardTitle className="text-base">Metric tree — which factor moved</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
+        {classification && responsible && (
+          <WhatWhy
+            classification={classification}
+            revenuePctChange={decomposition.revenue_pct_change}
+            primaryFactor={decomposition.primary_factor}
+            factors={decomposition.factors}
+            responsible={responsible}
+          />
+        )}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {factors.map((f) => {
             const status = statusOf(f.pct_change, f.factor, decomposition.primary_factor);
