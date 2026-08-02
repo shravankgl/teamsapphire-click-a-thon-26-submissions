@@ -373,12 +373,44 @@ GROUP BY hour, dim_name, dim_value;</pre>
 
 <!-- 12 ────────────────────────────────────────────────────────── -->
 <div class="slide">
-  <div class="kicker">The unseen incident</div>
-  <h2>Run cold on data we had never seen</h2>
-  <div class="ph grow">
-    FILL SUNDAY — from the harness output<br><br>
-    <span class="faint">Diagnosis in one line · the factor · the segment (or that none is responsible)<br>
-    · wall-clock · and a screenshot of the Langfuse trace that proves our system produced it</span>
+  <div class="kicker">The unseen incident · 2026-07-06 → 07-10 · run cold</div>
+  <h2 style="font-size:32px; margin-bottom:5mm">1.5M fresh events. One command, 37 seconds.</h2>
+
+  <div class="row" style="margin-bottom:5mm">
+    <div class="card" style="flex:1; padding:5mm 7mm">
+      <p class="faint" style="font-size:13px; letter-spacing:.12em; text-transform:uppercase">A · Jul 6 — mix shift</p>
+      <p style="font-size:18px; margin-top:3mm; line-height:1.45">Request <b>share</b> moved: APAC + LATAM <b class="green">+17pp</b>, EU + NAM <b class="red">−13pp</b>.
+      <span class="dim">The two cheapest regions displaced the two most expensive.</span></p>
+      <p style="font-size:18px; margin-top:3mm"><b>No region&rsquo;s own eCPM changed.</b>
+      <span class="dim">Global eCPM still fell ~8% — dilution, not a price change.</span></p>
+    </div>
+    <div class="card" style="flex:1; padding:5mm 7mm">
+      <p class="faint" style="font-size:13px; letter-spacing:.12em; text-transform:uppercase">B · Jul 9 — real price change</p>
+      <p style="font-size:18px; margin-top:3mm; line-height:1.45">video eCPM <b class="red">−30%</b>, rewarded <b class="green">+26%</b>, everything else flat.</p>
+      <p style="font-size:18px; margin-top:3mm"><b>Shares did not move.</b>
+      <span class="dim">So this one is genuine, not a mix effect.</span></p>
+    </div>
+  </div>
+
+  <table style="font-size:17px">
+    <tr><th>Run</th><th>What our system said</th><th>Verdict</th></tr>
+    <tr><td><b>B</b> <span class="dim">Jul 9–10</span></td>
+        <td><span class="mono">ecpm</span> in <span class="mono">ad_format=video</span> <b class="red">−35.0%</b> vs −12.0%</td>
+        <td class="green"><b>Correct</b> <span class="dim">— segment, magnitude, direction</span></td></tr>
+    <tr><td><b>A</b> <span class="dim">Jul 6–8</span></td>
+        <td><span class="mono">requests</span> in <span class="mono">campaign_type=CPC</span> <b>+139.5%</b> vs +8.6%</td>
+        <td class="amber">Right window &amp; factor <span class="dim">— named CPC; <span class="mono">region=APAC</span> ranked 5th of 7</span></td></tr>
+    <tr><td><b>Full</b> <span class="dim">119h</span></td>
+        <td>one event, <span class="mono">ecpm</span> in <span class="mono">ad_format=video</span></td>
+        <td class="amber">Partly <span class="dim">— merged A and B into one</span></td></tr>
+  </table>
+
+  <div class="grow"></div>
+  <div class="card" style="border-color:#8a3a3a; padding:5mm 8mm">
+    <p style="font-size:19px; line-height:1.45"><b class="red">Why we missed A&rsquo;s cause.</b>
+    <span class="dim">Our attribution asks whether a segment&rsquo;s <i>metric</i> moved beyond what its size explains.
+    In a mix shift <b>no segment&rsquo;s metric moves</b> — only the weights do. Catching it needs a share-of-volume
+    decomposition alongside the metric one. We did not build that.</span></p>
   </div>
   <div class="num">11</div>
 </div>

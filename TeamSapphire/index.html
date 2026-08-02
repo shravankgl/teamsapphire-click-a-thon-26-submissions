@@ -41,8 +41,33 @@ footer{color:var(--faint);font-size:14px;border-top:1px solid var(--line);paddin
   <tr><td><b>06-28 → 06-30</b><br><span class="dim">3 days</span></td><td><b>compound</b><br><span class="dim">iOS 18.1 × APAC</span></td><td>fill rate <b class="red">−50.6%</b>, while APAC alone is −2.3% and iOS 18.1 alone −12.3%.<br><span class="dim">No single-dimension scan can see it.</span></td></tr>
 </table>
 
-<h2>The unseen incident</h2>
-<p class="lead" id="unseen">Released in the final hours and run cold through the same command. <a href="artifacts/unseen/" style="color:var(--blue)">Bundle →</a> <span class="dim">— diagnosis, the numbers behind it, and the trace that proves our system generated it.</span></p>
+<h2>The unseen incident — 2026-07-06 → 07-10, run cold</h2>
+<p class="lead" style="margin-bottom:14px">1,500,000 fresh events, released in the final hours. One command, 37 seconds.
+<a href="artifacts/unseen/" style="color:var(--blue)">Full bundle →</a></p>
+
+<table>
+  <tr><th>In the data</th><th>What our system reported</th></tr>
+  <tr>
+    <td><b>A · Jul 6 — mix shift</b><br>
+      <span class="dim">Request share: APAC + LATAM <span class="grn">+17pp</span>, EU + NAM <span class="red">−13pp</span>.
+      No region&rsquo;s own eCPM changed — global eCPM still fell ~8% by dilution alone.</span></td>
+    <td><span class="dim">Right window and factor —</span> <code>requests</code> in <code>campaign_type=CPC</code> <b>+139.5%</b>.
+      <br><span class="dim">Named CPC; <code>region=APAC</code> ranked 5th of 7 responsible.</span></td>
+  </tr>
+  <tr>
+    <td><b>B · Jul 9 — real price change</b><br>
+      <span class="dim">video eCPM <span class="red">−30%</span>, rewarded <span class="grn">+26%</span>, everything else flat.
+      Shares did not move.</span></td>
+    <td><b class="grn">Correct.</b> <code>ecpm</code> in <code>ad_format=video</code> <b>−35.0%</b> vs −12.0% globally —
+      <span class="dim">segment, magnitude and direction all match.</span></td>
+  </tr>
+</table>
+
+<p class="lead" style="margin-bottom:28px"><b>Where it fell short, stated plainly.</b> Our attribution asks whether a segment&rsquo;s
+<i>metric</i> moved beyond what its size explains. In a mix shift <b>no segment&rsquo;s metric moves</b> — only the weights do,
+so the system reached for correlates of the incoming traffic instead of the shift itself. Catching that needs a
+share-of-volume decomposition alongside the metric one, and we did not build it. The consolidation also merged the two
+incidents into one on the full-window run.</p>
 
 <h2>How it works</h2>
 <p class="lead">Raw <code>MergeTree</code> → three dictionaries resolving nine dimensions at insert time → two <code>SummingMergeTree</code> rollups. The obvious fully-crossed rollup was built first and measured at <b>7,247,816 rows from 7.2M events</b> — it compressed nothing. The unpivoted grain that replaced it is <b class="grn">53,760 rows</b>, 167× smaller. One investigation runs <b>111 queries over 934,006,552 rows</b> in ~37s of ClickHouse time.</p>
