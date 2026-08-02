@@ -64,6 +64,10 @@ ad_events (raw MergeTree, 9,000,000 rows)
    6  NARRATE     one LLM call over computed numbers      ← the only LLM
 ```
 
+## Reviewer access
+
+**[JUDGES.md](JUDGES.md)** — public URLs and read-only logins for Langfuse, LibreChat, ClickStack/HyperDX, plus a read-only ClickHouse account so any number in the artifacts can be re-run and checked directly. Time-boxed: the VM is shut down at 14:00 IST on 2 August 2026 and those credentials retire with it.
+
 ## Artifacts
 
 **[`artifacts/`](artifacts/)** — the graded outputs.
