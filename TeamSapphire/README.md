@@ -172,7 +172,37 @@ Without `--start`/`--end` the window is inferred from the newest data and delibe
 
 **Tests:** `.venv/bin/python -m pytest tests/ -v` — 15 integration tests against the real database, skipping cleanly if it is unreachable.
 
-[RUN.md](RUN.md) has the longer reference: per-stage runners, the OSS service map, and how to read the traces without access to our network.
+**Inspecting a single stage.** Each stage has a standalone runner — this is how the pipeline was built and debugged:
+
+```bash
+.venv/bin/python scripts/try_detect.py        # also: try_decompose, try_localize,
+.venv/bin/python scripts/try_characterize.py  # try_segments, try_narrate
+.venv/bin/python scripts/ch.py query "SELECT count() FROM inmobi.ad_events"
+```
+
+## The OSS stack — and why there are no credentials here
+
+**No credentials appear anywhere in this repository, and none will be added.** It is public, and a PR to a public upstream: anything committed lives in git history permanently, and these services front a ClickHouse Cloud account and an LLM API key. `.env` is gitignored; `.env.example` lists variable *names* only.
+
+The stack runs on a GCP VM (`n2-standard-8`, `asia-south1`), reachable only over Tailscale. Nothing is internet-facing.
+
+| Service | Role | Port |
+|---|---|---|
+| **ClickHouse Cloud** (`ap-south-1`) | The only analytical store — raw table, 2 rollups, 3 dictionaries | 8443 |
+| **Langfuse** | Traces every investigation stage, including the ruled-out branches | 3000 |
+| **LibreChat** | The *InMobi Analytics* agent, over the ClickHouse MCP server | 3080 |
+| **ClickStack / HyperDX** | OTel traces of the API + dashboards charting the rollups | 8080 |
+| **ClickHouse MCP** | Read-only bridge from the agent to ClickHouse (`mcp_agent`, verified unable to write) | — |
+
+### Reading the traces without access to our network
+
+This is the part that matters for grading. Langfuse's own share links are unauthenticated URLs **on the same private host**, so they do not help a reader outside our tailnet.
+
+Every trace is therefore **exported and committed** — `artifacts/traces/<id>.json` is the full export (every span, input, output, timing) and `<id>.md` is a readable stage-by-stage summary. That is the same object the Langfuse UI renders. Regenerate with `scripts/export_trace.py`.
+
+### Reproducing on your own infrastructure
+
+Everything is env-driven — point `.env` at your own ClickHouse and the pipeline runs unchanged. Langfuse and OTel are optional: absent their variables the tracer degrades to a no-op and the investigation proceeds normally. The agent layer is the reference compose from [ClickHouse/agentic-data-stack](https://github.com/ClickHouse/agentic-data-stack), with the ClickHouse MCP server pointed at a read-only user.
 
 ## Honest limitations
 
