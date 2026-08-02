@@ -8,38 +8,64 @@ Answers the four things the InMobi guidelines ask for: how detection, drill-down
 
 **In ClickHouse.** Seven of the eight stages are SQL. Python does orchestration and one division on already-aggregated rows. The LLM writes one paragraph and never sees an event.
 
-```
-                   ┌──────────────────── CLICKHOUSE ────────────────────┐
-                   │                                                     │
-  ad_events ──────►│  raw MergeTree · 9,000,000 rows                     │
-                   │      │                                              │
-                   │      ├─ 3 dictionaries — dictGet() resolves 9       │
-                   │      │  dimensions at INSERT time, so the views     │
-                   │      │  never JOIN                                  │
-                   │      │                                              │
-                   │      └─ 2 materialized views (insert triggers)      │
-                   │           ├── events_hourly           840 rows      │
-                   │           └── events_hourly_by_dim  53,760 rows     │
-                   └──────────────┬──────────────────────────────────────┘
-                                  │  131 queries per investigation
-     ┌────────────────────────────┴────────────────────────────┐
-     │  1  DETECT       like-for-like baseline, global + segment   SQL   │
-     │  2  CONSOLIDATE  flagged hours → distinct events          Python  │
-     │  3  DECOMPOSE    which factor moved (log-space identity)    SQL   │
-     │  4  LOCALIZE     which segment — or that none is            SQL   │
-     │  4b CHARACTERIZE the shape of the transition                SQL   │
-     │  4c INTERSECT    compound segments (reads raw)              SQL   │
-     │  5  RULE OUT     what was checked and cleared               SQL   │
-     │  6  NARRATE      one call over computed numbers             LLM   │
-     └────────────────────────────┬────────────────────────────┘
-                                  │
-        FastAPI :8010 ──► Vite + ECharts incident view :3100
-        Langfuse ◄── every stage, including ruled-out branches
-        LibreChat ──► ClickHouse MCP ──► the same rollups
-        ClickStack/HyperDX ◄── OTel traces + rollup charts
+```mermaid
+flowchart TB
+    ING["ad events in"]:::plain
+
+    subgraph CH["ClickHouse — the only analytical store"]
+        direction TB
+        RAW["<b>ad_events</b><br/><i>raw MergeTree · 10,500,000 rows</i>"]:::store
+        DICT["<b>3 dictionaries</b><br/><i>dictGet resolves 9 dimensions at INSERT — the views never JOIN</i>"]:::store
+        MV(["2 materialized views · fire on every INSERT"]):::trigger
+        H1["<b>events_hourly</b><br/><i>hourly totals · 960 rows</i>"]:::rollup
+        H2["<b>events_hourly_by_dim</b><br/><i>hour × dim × value · 61,440 rows</i>"]:::rollup
+        RAW --> DICT --> MV
+        MV --> H1
+        MV --> H2
+    end
+
+    subgraph ENG["Engine — one command, 131 queries"]
+        direction TB
+        S1["<b>1 · Detect</b> — like-for-like baseline, global and per segment"]:::sql
+        S2["<b>2 · Consolidate</b> — flagged hours into distinct events"]:::py
+        S3["<b>3 · Decompose</b> — which factor moved, exact identity in log space"]:::sql
+        S4["<b>4 · Localize</b> — which segment, or that none is responsible"]:::sql
+        S5["<b>4b · Characterize</b> — the shape of the transition"]:::sql
+        S6["<b>4c · Intersect</b> — compound segments one dimension cannot see<br/><i>reads raw ad_events: the unpivoted rollup cannot represent combinations</i>"]:::sql
+        S7["<b>5 · Rule out</b> — everything checked and cleared, with numbers"]:::sql
+        S8["<b>6 · Narrate</b> — one call over computed numbers"]:::llm
+        S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8
+    end
+
+    API["<b>FastAPI</b><br/><i>every response carries query_ms · rows · sql</i>"]:::serve
+    UI["<b>Incident view</b><br/><i>Vite + ECharts</i>"]:::serve
+    LF["<b>Langfuse</b><br/><i>every stage, including ruled-out branches</i>"]:::oss
+    LC["<b>LibreChat + ClickHouse MCP</b><br/><i>follow-ups on the same rollups</i>"]:::oss
+    HX["<b>ClickStack / HyperDX</b><br/><i>OTel traces + rollup charts</i>"]:::oss
+
+    ING --> RAW
+    RAW -.->|pair scan| S6
+    H1 --> S1
+    H2 --> S1
+    S8 --> API --> UI
+    ENG -.->|traced| LF
+    H2 -.->|read-only| LC
+    API -.->|OTel| HX
+
+    classDef store  fill:#16213a,stroke:#3d5a8a,color:#e8ecf5
+    classDef rollup fill:#12301f,stroke:#3ecf6b,color:#e8f5ec
+    classDef trigger fill:#1a1a22,stroke:#6b6b78,color:#d8d8e0
+    classDef sql    fill:#12301f,stroke:#2f6b45,color:#dff3e6
+    classDef py     fill:#332711,stroke:#fab219,color:#f7e7c6
+    classDef llm    fill:#16213a,stroke:#5b9df9,color:#dbe8ff
+    classDef serve  fill:#1a1a22,stroke:#8a8a99,color:#ececf2
+    classDef oss    fill:#1a1a22,stroke:#5b9df9,color:#dbe8ff
+    classDef plain  fill:#0d0d0f,stroke:#4a4a55,color:#b8b8c2
+    style CH  fill:#0f1a12,stroke:#3ecf6b,color:#8fe0aa
+    style ENG fill:#101018,stroke:#4a4a5a,color:#b8b8c8
 ```
 
-**Deployment.** ClickHouse Cloud (`ap-south-1`) is the only data store. The OSS stack — LibreChat, Langfuse, HyperDX, the ClickHouse MCP server — runs on a GCP VM (`n2-standard-8`, `asia-south1`). API and UI run locally. Every hop is private over Tailscale; no port is internet-facing.
+**Deployment.** ClickHouse Cloud (`ap-south-1`) is the only data store. The OSS stack — LibreChat, Langfuse, HyperDX, the ClickHouse MCP server — runs on a GCP VM (`n2-standard-8`, `asia-south1`). API and UI run locally. The default posture is Tailscale-only with the firewall restricted to a small allow-list; it is opened to the internet solely for the review window, with read-only logins in the submission [README](README.md#reviewer-access), and closed again afterwards.
 
 **Delete stage 6 and the diagnosis is unchanged.** That is the trustworthiness argument in one sentence, and it is testable: `./investigate.sh --no-narrate` produces the same structured output minus the prose.
 
@@ -133,7 +159,7 @@ We measured where the work goes rather than assuming the rollup made everything 
 
 **One stage is 99.5% of the rows and 82% of the time.** Everything the method rests on is the other 0.4%.
 
-**What scales structurally.** `events_hourly_by_dim` holds 53,760 rows at 9M events and *still 53,760 at 900M*, because it grows with `distinct values × hours`, not with traffic. The materialized views are insert triggers, so streaming ingestion needs no new code and no new maths; and because no statistic is materialized, nothing drifts or needs rebuilding.
+**What scales structurally.** `events_hourly_by_dim` grows with `distinct values × hours`, not with traffic — and the unseen dataset demonstrated it rather than us asserting it. Adding 1.5M events over 5 days took the raw table from 9,000,000 to 10,500,000 rows (**+17%**) while the rollup went 53,760 → 61,440 (**+14%**), exactly tracking the 840 → 960 hours and not the event count. At 100× the events over the same window it would not move at all. The materialized views are insert triggers, so streaming ingestion needs no new code and no new maths; and because no statistic is materialized, nothing drifts or needs rebuilding.
 
 **What doesn't.** Compound detection reads raw events — at 100× that is ~93 billion rows per investigation. **The fix is the trick already applied once:** a materialized *pair* rollup. `os_version (8) × region (5) × 840 hours = 33,600 rows`. Summed across all 21 pairs it is still under a million rows, because pairs are bounded by cardinality products, not by event count. The cost is write amplification, which is why you would materialize the two or three pairs that matter rather than all of them, and keep a periodic full raw sweep for anything they miss.
 

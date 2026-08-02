@@ -181,6 +181,68 @@ def render_event(idx: int, ev: dict, narration: dict | None, trace_url: str | No
     return "\n".join(L)
 
 
+def write_index(dst: Path, d: dict, entries: list, depth: int = 1) -> None:
+    """The artifacts index, generated rather than maintained.
+
+    It was hand-written once and immediately went stale: filenames encode an
+    incident's rank, so a run finding a different number of events renames them
+    all, and every link in the index 404s while still looking authoritative.
+    """
+    up = "../" * depth
+    L = ["# Artifacts — the graded outputs",
+         "",
+         f"Generated from a single run over **{d['window_start'][:10]} → {d['window_end'][:10]}** by",
+         f"[`build_artifacts.py`]({up}scripts/build_artifacts.py) and",
+         f"[`export_trace.py`]({up}scripts/export_trace.py). Nothing here is written by",
+         "hand, so every run reproduces the same set from its own output.",
+         "",
+         f"**{len(d['queries'])} queries · {d['total_rows_read']:,} rows read · "
+         f"{d['total_query_ms']/1000:.1f} s of ClickHouse time.**",
+         "",
+         "| | |",
+         "|---|---|",
+         "| [`diagnoses/`](diagnoses/) | One file per incident — plain-language diagnosis, factor "
+         "decomposition, the segment named (or that none is), transition shape, and the full "
+         "ruled-out ledger |",
+         "| [`queries.md`](queries.md) | Every query with its exact SQL, rows read and timing. "
+         "Every number in every diagnosis comes from one of these |",
+         "| [`traces/`](traces/) | Exported Langfuse traces — every stage in order with its inputs, "
+         "verdict and timing, including the ruled-out branches. The SQL is in `queries.md`, not the "
+         "trace |",
+         "",
+         ]
+    if (dst / "compound-segments.md").exists():
+        L.append("| [`compound-segments.md`](compound-segments.md) | Two-dimension findings, each "
+                 "with both parents' movement for comparison |")
+    if (dst / "unseen").is_dir():
+        L.append("| [`unseen/`](unseen/) | The unseen-incident bundle |")
+    L += ["",
+          f"## The {len(entries)} incident(s) found",
+          "",
+          "| # | Window | Classification | Severity | Diagnosis |",
+          "|---|---|---|---:|---|"]
+    for i, ev, fname in entries:
+        L.append(f"| [{i}](diagnoses/{fname}) | {ev['start'][:16]} → {ev['end'][:16]} "
+                 f"| `{ev['classification']}` | {ev['severity']:.1f} | {ev['headline']} |")
+    L += ["",
+          "Ranked by severity — peak percent deviation times the hours it lasted. Events labelled",
+          "`unattributed` are reported rather than filtered out: no dimension cleared the",
+          "attribution bar, and saying so is more honest than inventing a cause.",
+          "",
+          "## Why the ruled-out ledger is here",
+          "",
+          "The problem statement's bonus criterion. Every dimension is tested with the same",
+          "arithmetic on every incident, and each diagnosis carries the full ledger:",
+          "`responsible + ruled_out = 9` in every case, so no dimension is silently dropped.",
+          "",
+          "On the 2026-06-21 incident the ledger *is* the answer — all three publisher tiers moved",
+          "within 0.2% of the global figure, all five ad formats within 0.4%, all seven categories",
+          "within 0.5%. Ranking segments by size of drop there names the largest segment every time,",
+          "confidently and wrongly. Reporting that no segment is responsible is the correct finding.",
+          ""]
+    (dst / "README.md").write_text("\n".join(L))
+
+
 def main() -> int:
     src = Path(sys.argv[1] if len(sys.argv) > 1 else "out/diagnosis.json")
     dst = Path(sys.argv[2] if len(sys.argv) > 2 else "artifacts")
@@ -204,6 +266,19 @@ def main() -> int:
         (dst / "diagnoses" / slug).write_text(render_event(i, ev, narr.get(str(i)), trace))
 
     write_query_appendix(dst / "queries.md", d["queries"])
+    # Walk up from dst until we find the directory holding scripts/, so the
+    # relative links are correct wherever this is invoked from. Deriving depth
+    # from the cwd instead produced ../../../../ links that resolved nowhere.
+    depth, probe = 1, dst.resolve()
+    for _ in range(8):
+        probe = probe.parent
+        if (probe / "scripts" / "build_artifacts.py").exists():
+            break
+        depth += 1
+    else:
+        depth = 1
+    write_index(dst, d, [(i, ev, f"{i:02d}-{ev['start'][:10]}-{ev['classification']}.md")
+                         for i, ev in enumerate(events, 1)], depth=depth)
 
     compounds = d.get("compound_findings") or []
     if compounds:

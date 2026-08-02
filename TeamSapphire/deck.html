@@ -143,7 +143,7 @@ li::before{ content:"—"; color:var(--faint); margin-right:3.5mm; }
 
   <rect x="34" y="80" width="382" height="66" rx="8" class="bx"/>
   <text x="52" y="108" class="t">ad_events</text>
-  <text x="52" y="132" class="m">MergeTree · 9,000,000 rows</text>
+  <text x="52" y="132" class="m">MergeTree · 10,500,000 rows</text>
 
   <rect x="34" y="166" width="382" height="58" rx="8" class="bx"/>
   <text x="52" y="192" class="t" style="font-size:21px">3 dictionaries</text>
@@ -154,12 +154,12 @@ li::before{ content:"—"; color:var(--faint); margin-right:3.5mm; }
 
   <rect x="34" y="268" width="185" height="80" rx="8" class="bx" stroke="#3ecf6b" stroke-opacity=".35"/>
   <text x="50" y="294" class="t" style="font-size:20px">events_hourly</text>
-  <text x="50" y="318" class="m" style="font-size:17px">840 rows</text>
+  <text x="50" y="318" class="m" style="font-size:17px">960 rows</text>
   <text x="50" y="338" class="s" style="font-size:16px">platform totals</text>
 
   <rect x="231" y="268" width="185" height="80" rx="8" class="bx" stroke="#3ecf6b" stroke-opacity=".35"/>
   <text x="247" y="294" class="t" style="font-size:20px">…_by_dim</text>
-  <text x="247" y="318" class="m" style="font-size:17px">53,760 rows</text>
+  <text x="247" y="318" class="m" style="font-size:17px">61,440 rows</text>
   <text x="247" y="338" class="s" style="font-size:16px">unpivoted · 167× smaller</text>
 
   <rect x="34" y="366" width="382" height="84" rx="8" class="bx" stroke="#5b9df9" stroke-opacity=".3"/>
@@ -212,7 +212,7 @@ li::before{ content:"—"; color:var(--faint); margin-right:3.5mm; }
 
   <!-- ═══ WHERE IT RUNS ═══ -->
   <rect x="10" y="506" width="1380" height="86" rx="10" fill="#111116" stroke="#2a2a31"/>
-  <text x="30" y="532" class="hd">WHERE IT RUNS · private mesh, nothing public</text>
+  <text x="30" y="532" class="hd">WHERE IT RUNS · Tailscale by default, opened for review</text>
 
   <text x="30" y="562" class="t" style="font-size:19px">ClickHouse Cloud</text>
   <text x="30" y="582" class="s" style="font-size:16px">ap-south-1 · the only data store</text>
@@ -224,7 +224,7 @@ li::before{ content:"—"; color:var(--faint); margin-right:3.5mm; }
   <text x="800" y="582" class="s" style="font-size:16px">FastAPI :8010 · incident view :3100</text>
 
   <text x="1120" y="562" class="t" style="font-size:19px" fill="#3ecf6b">Tailscale</text>
-  <text x="1120" y="582" class="s" style="font-size:16px">every hop private; no port is internet-facing</text>
+  <text x="1120" y="582" class="s" style="font-size:16px">private by default; opened only for the review window</text>
 
   <line x1="315" y1="546" x2="315" y2="580" stroke="#2a2a31" stroke-width="2"/>
   <line x1="785" y1="546" x2="785" y2="580" stroke="#2a2a31" stroke-width="2"/>
@@ -311,7 +311,7 @@ GROUP BY hour, dim_name, dim_value;</pre>
 <!-- 9 ─────────────────────────────────────────────────────────── -->
 <div class="slide">
   <div class="kicker">What it found · unassisted</div>
-  <h2>Three anomalies, three different shapes</h2>
+  <h2>Main dataset — three anomalies, three different shapes</h2>
   <table>
     <tr><th>When</th><th>Shape</th><th>Diagnosis</th></tr>
     <tr>

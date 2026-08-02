@@ -10,7 +10,8 @@ InMobi — *"From alert to answer: the automated root-cause analyst."*
 
 ## Team Members
 
-- Shravan (@shravankgl)
+- Shravan A — shravan@bytebeam.io
+- Gowthami Shravan — gowthami@bytebeam.io
 
 ## What it does
 
@@ -32,9 +33,24 @@ This does the drilling. Point it at a window and in about a minute it returns a 
 
 **https://shravankgl.github.io/teamsapphire-click-a-thon-26-submissions/TeamSapphire/demo/**
 
-The incident view showing all five detected events, the responsible segments, the ruled-out ledger for every dimension, the compound findings, and the query-latency envelope.
+The incident view showing all six detected events across both datasets — the unseen incident ranks first by severity — with the responsible segments, the ruled-out ledger for every dimension, the compound findings, and the query-latency envelope.
 
 It fetches the live API first and falls back to a committed snapshot of a real `./investigate.sh` run — so the hosted version shows genuine engine output with no backend, and says so in a banner rather than passing a cached run off as live. That snapshot is regenerated from the harness, never hand-authored: this system's whole claim is that every number was computed from the data, so a plausible-looking hand-written fixture would be the one thing capable of putting a fabricated figure on screen.
+
+| Service | URL | Login | What to look at |
+|---|---|---|---|
+| **LibreChat** | <http://35.200.218.190:3080> | `shravan@bytebeam.io` / `Clickathon2026Review` | The **InMobi Analytics** agent ([prompt](stack/agents/inmobi-analytics.md)), plus 7 saved conversations already in the sidebar |
+| **Langfuse** | <http://35.200.218.190:3000> | `admin@clickathon.local` / `9880012f09e03ab8a94bb3faAa!` | Project *clickathon-project* — every stage of every run, including ruled-out branches |
+| **ClickStack / HyperDX** | <http://35.200.218.190:8080> | `shravan@bytebeam.io` / `Admin@123456` | Dashboard **Ad Metrics — Anomalies**. Set the range to **1 Jun – 11 Jul 2026** |
+| **ClickHouse** | `x6fcqwjunt.ap-south-1.aws.clickhouse.cloud:8443` | `dashboard_ro` / `a35b92256a9df1542e4bc356cf6b758081e57ba5Aa1!@#` · db `inmobi` | Re-run anything from [`artifacts/queries.md`](artifacts/queries.md) and check our numbers |
+
+`dashboard_ro` is `readonly = 1` — verified unable to `INSERT`, `ALTER` or `DROP`:
+
+> **Note on the schema.** Events before `2026-07-06` are joined to the original
+> dimension tables (`geo_device_old`, `apps_old`, `advertisers_old`) and events from
+> `2026-07-06` to the regenerated ones. The unseen dataset reuses the same IDs with
+> different attributes, so a single dimension table across both periods misattributes
+> every segment — see [`artifacts/unseen/README.md`](artifacts/unseen/README.md).
 
 ## Demo Video
 
@@ -46,27 +62,65 @@ See **[ARCHITECTURE.md](ARCHITECTURE.md)** for the full 2-pager: how detection, 
 
 In one diagram:
 
-```
-ad_events (raw MergeTree, 9,000,000 rows)
-   │  3 dictionaries resolve 9 dimensions via dictGet() at insert time — no JOIN
-   │  2 materialized views fire on every INSERT
-   ├── events_hourly          hourly platform totals            840 rows
-   └── events_hourly_by_dim   (hour, dim_name, dim_value)     53,760 rows
-                │
-   1  DETECT       like-for-like baseline, global AND per segment      SQL
-   2  CONSOLIDATE  group flagged hours into distinct events         Python
-   3  DECOMPOSE    which factor moved — exact identity, log space      SQL
-   4  LOCALIZE     which segment — or that none is responsible         SQL
-   4b CHARACTERIZE the shape of the transition                         SQL
-   4c INTERSECT    compound segments invisible to one dimension        SQL
-   5  RULE OUT     everything checked and cleared, with numbers        SQL
-                │
-   6  NARRATE     one LLM call over computed numbers      ← the only LLM
+```mermaid
+flowchart TB
+    ING["ad events in"]:::plain
+
+    subgraph CH["ClickHouse — the only analytical store"]
+        direction TB
+        RAW["<b>ad_events</b><br/><i>raw MergeTree · 10,500,000 rows</i>"]:::store
+        DICT["<b>3 dictionaries</b><br/><i>dictGet resolves 9 dimensions at INSERT — the views never JOIN</i>"]:::store
+        MV(["2 materialized views · fire on every INSERT"]):::trigger
+        H1["<b>events_hourly</b><br/><i>hourly totals · 960 rows</i>"]:::rollup
+        H2["<b>events_hourly_by_dim</b><br/><i>hour × dim × value · 61,440 rows</i>"]:::rollup
+        RAW --> DICT --> MV
+        MV --> H1
+        MV --> H2
+    end
+
+    subgraph ENG["Engine — one command, 131 queries"]
+        direction TB
+        S1["<b>1 · Detect</b> — like-for-like baseline, global and per segment"]:::sql
+        S2["<b>2 · Consolidate</b> — flagged hours into distinct events"]:::py
+        S3["<b>3 · Decompose</b> — which factor moved, exact identity in log space"]:::sql
+        S4["<b>4 · Localize</b> — which segment, or that none is responsible"]:::sql
+        S5["<b>4b · Characterize</b> — the shape of the transition"]:::sql
+        S6["<b>4c · Intersect</b> — compound segments one dimension cannot see"]:::sql
+        S7["<b>5 · Rule out</b> — everything checked and cleared, with numbers"]:::sql
+        S8["<b>6 · Narrate</b> — one call over computed numbers"]:::llm
+        S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8
+    end
+
+    API["<b>FastAPI</b><br/><i>every response carries query_ms · rows · sql</i>"]:::serve
+    UI["<b>Incident view</b><br/><i>Vite + ECharts</i>"]:::serve
+    LF["<b>Langfuse</b><br/><i>every stage, including ruled-out branches</i>"]:::oss
+    LC["<b>LibreChat + ClickHouse MCP</b><br/><i>follow-ups on the same rollups</i>"]:::oss
+    HX["<b>ClickStack / HyperDX</b><br/><i>OTel traces + rollup charts</i>"]:::oss
+
+    ING --> RAW
+    H1 --> S1
+    H2 --> S1
+    S8 --> API --> UI
+    ENG -.->|traced| LF
+    H2 -.->|read-only| LC
+    API -.->|OTel| HX
+
+    classDef store  fill:#16213a,stroke:#3d5a8a,color:#e8ecf5
+    classDef rollup fill:#12301f,stroke:#3ecf6b,color:#e8f5ec
+    classDef trigger fill:#1a1a22,stroke:#6b6b78,color:#d8d8e0
+    classDef sql    fill:#12301f,stroke:#2f6b45,color:#dff3e6
+    classDef py     fill:#332711,stroke:#fab219,color:#f7e7c6
+    classDef llm    fill:#16213a,stroke:#5b9df9,color:#dbe8ff
+    classDef serve  fill:#1a1a22,stroke:#8a8a99,color:#ececf2
+    classDef oss    fill:#1a1a22,stroke:#5b9df9,color:#dbe8ff
+    classDef plain  fill:#0d0d0f,stroke:#4a4a55,color:#b8b8c2
+    style CH  fill:#0f1a12,stroke:#3ecf6b,color:#8fe0aa
+    style ENG fill:#101018,stroke:#4a4a5a,color:#b8b8c8
 ```
 
-## Reviewer access
-
-**[JUDGES.md](JUDGES.md)** — public URLs and read-only logins for Langfuse, LibreChat, ClickStack/HyperDX, plus a read-only ClickHouse account so any number in the artifacts can be re-run and checked directly. Time-boxed: the VM is shut down at 14:00 IST on 2 August 2026 and those credentials retire with it.
+**Seven of the eight stages are SQL.** Python does orchestration and one division on
+already-aggregated rows; the LLM writes one paragraph and never sees an event row.
+Delete stage 6 and the structured diagnosis is unchanged.
 
 ## Artifacts
 
@@ -83,7 +137,9 @@ These are generated from the run itself by [`scripts/build_artifacts.py`](script
 
 ## What it found
 
-On the provided dataset, unassisted:
+### Main dataset — 1 Jun to 5 Jul
+
+Unassisted:
 
 | | When | Shape | Diagnosis |
 |---|---|---|---|
@@ -95,13 +151,56 @@ Incident 3 is the one that matters. On 2026-06-28: global **−1.0%**, APAC alon
 
 Incident 2 shows why shape matters: **96% of its total change landed inside one hour**, exactly on a day boundary, reversing just as sharply after exactly three days while requests, render rate and eCPM held steady. That is consistent with a scheduled, demand-side change with an end date — not a degradation. We state it as what the evidence is consistent with, never as an established mechanism.
 
+### The unseen incident — 6 to 10 Jul
+
+1,500,000 fresh events, loaded and analysed cold by the same command. Full bundle,
+with every query and the exported trace, in
+[`artifacts/unseen/`](artifacts/unseen/).
+
+**The data contains two anomalies, with different mechanisms.**
+
+| | When | What is actually there |
+|---|---|---|
+| A | 07-06 onward | **A geographic mix shift.** Request *share* moved — APAC + LATAM **+17pp**, EU + NAM **−13pp**. The two cheapest regions displaced the two most expensive, so global eCPM fell ~8% **while no region's own eCPM changed at all**. Dilution, not a price change |
+| B | 07-09 onward | **A real price change.** video eCPM **−30%**, rewarded **+26%**, everything else flat. Shares did not move |
+
+**What our system reported:**
+
+| Run | Verdict | |
+|---|---|---|
+| [`B/`](artifacts/unseen/B/) | `ecpm` in `ad_format=video` **−35.0%** vs −12.0% globally | ✅ **Correct** — segment, magnitude and direction all match |
+| [`A/`](artifacts/unseen/A/) | `requests` in `campaign_type=CPC` **+139.5%** vs +8.6% | ⚠️ Right window and factor. It also named `region=APAC`, 5th of seven responsible — but the headline picked CPC |
+| [`FULL/`](artifacts/unseen/FULL/) | one 119 h event, `ecpm` in `ad_format=video` | ⚠️ Merged A and B into a single event |
+
+**Where it fell short, and why.** Our attribution asks *"did this segment's **metric**
+move more than its own size explains?"* In a mix shift the answer is no for every
+segment — APAC's eCPM did not move, EU's did not move. Only their **weights** did. So
+the system reached for segments whose metric *did* move (CPC, news, iOS 17.5), all of
+which are correlates of the incoming APAC/LATAM traffic rather than causes. Catching
+this needs a share-of-volume decomposition alongside the metric one; that is a standard
+technique and we did not build it. The consolidation also merged two back-to-back
+incidents into one on the full-window run.
+
+**What held up:** the like-for-like baseline worked across a dataset boundary, the
+revenue identity closed to ~1e-17 on every run, the ruled-out ledger correctly cleared
+publisher_tier, category, campaign_type and vertical as uniform, the shape analysis
+separated a gradual onset (A) from a step (B), and every narrated number was verified
+against computed evidence — all three runs exited 0.
+
 ## How we built it
 
 **ClickHouse** is the only analytical store. Raw `MergeTree`, two `SummingMergeTree` rollups maintained by materialized views, three dictionaries.
 
 The schema is small on purpose, and the small schema is the design work. We built the obvious fully-crossed rollup first and measured it: **7,247,816 rows from 7.2M events** — nearly every event had its own dimension combination, so it compressed nothing and cost a second copy of the data. Across all nine dimensions there are only **62 distinct values in total**, so an *unpivoted* `(hour, dim_name, dim_value)` grain is **53,760 rows** — 167× smaller, and exactly the shape contribution ranking reads.
 
-Rest of the stack: **Python** for orchestration and one division on already-aggregated rows · **FastAPI** with a `query_ms` / `rows_scanned` / `sql` envelope on every response · **Vite + React + shadcn/ui + ECharts** for the incident view · **Langfuse** tracing every stage including ruled-out branches · **LibreChat + ClickHouse MCP** for follow-ups · **ClickStack/HyperDX** for OTel traces and rollup charts.
+Rest of the stack:
+
+- **Python** — orchestration, and one division on already-aggregated rows. No analysis lives here
+- **FastAPI** — a `query_ms` / `rows_scanned` / `sql` envelope on every response, so any panel can show what it cost and what it ran
+- **Vite + React + shadcn/ui + ECharts** — the incident view
+- **Langfuse** — a span per stage, including the branches that were ruled out
+- **LibreChat + ClickHouse MCP** — follow-up questions against the same rollups, read-only. Agent definition and full system prompt: [`stack/agents/`](stack/agents/inmobi-analytics.md)
+- **ClickStack / HyperDX** — OTel traces of our own API, and dashboards charting the rollups directly
 
 **Testing:** 15 integration tests against the real database. Mocking ClickHouse would test our mocks; every failure this project actually had was in the interaction between SQL, real data and Python arithmetic.
 
@@ -184,11 +283,13 @@ Without `--start`/`--end` the window is inferred from the newest data and delibe
 .venv/bin/python scripts/ch.py query "SELECT count() FROM inmobi.ad_events"
 ```
 
-## The OSS stack — and why there are no credentials here
+## The OSS stack
 
-**No credentials appear anywhere in this repository, and none will be added.** It is public, and a PR to a public upstream: anything committed lives in git history permanently, and these services front a ClickHouse Cloud account and an LLM API key. `.env` is gitignored; `.env.example` lists variable *names* only.
-
-The stack runs on a GCP VM (`n2-standard-8`, `asia-south1`), reachable only over Tailscale. Nothing is internet-facing.
+Everything below runs on a GCP VM (`n2-standard-8`, `asia-south1`). Logins are in
+[Reviewer access](#reviewer-access) above. **The wiring is committed** — see
+[`stack/`](stack/): `docker-compose.yml`, `librechat.yaml`, and every `.env` as a
+redacted `.example`, so how each tool is connected is readable without redeploying
+anything.
 
 | Service | Role | Port |
 |---|---|---|
@@ -198,9 +299,53 @@ The stack runs on a GCP VM (`n2-standard-8`, `asia-south1`), reachable only over
 | **ClickStack / HyperDX** | OTel traces of the API + dashboards charting the rollups | 8080 |
 | **ClickHouse MCP** | Read-only bridge from the agent to ClickHouse (`mcp_agent`, verified unable to write) | — |
 
-### Reading the traces without access to our network
+### How each tool is wired
 
-This is the part that matters for grading. Langfuse's own share links are unauthenticated URLs **on the same private host**, so they do not help a reader outside our tailnet.
+The guidelines ask for the wiring, not a claim. All of it is in [`stack/`](stack/) —
+compose file, LibreChat config, and every environment file as a redacted `.example`.
+
+| Tool | Where it is configured | What it writes to | Where it appears in the pipeline |
+|---|---|---|---|
+| **Langfuse** | [`engine/trace.py`](engine/trace.py) — a span per stage; keys via `LANGFUSE_*` in [`.env.example`](.env.example). Self-hosted in [`stack/docker-compose.yml`](stack/docker-compose.yml) | Its own ClickHouse (`default.*` on the VM) + Postgres + MinIO | Wraps every stage of `investigate()` — detect, decompose, localize, characterize, intersect, narrate — **including the branches that were ruled out** |
+| **ClickStack / HyperDX** | `clickstack-otel-collector` in [`stack/docker-compose.yml`](stack/docker-compose.yml); the app instruments itself in [`api/main.py`](api/main.py) via `OTEL_EXPORTER_OTLP_ENDPOINT` | ClickHouse database **`otel`** (`HYPERDX_OTEL_EXPORTER_CLICKHOUSE_DATABASE=otel`), tables `otel_traces`, `otel_logs`, `otel_metrics_*` | Traces the FastAPI service itself, and its dashboards chart `inmobi.events_hourly_by_dim` **directly** — the anomalies as raw shapes, independent of anything our engine claims |
+| **LibreChat** | [`stack/librechat.yaml`](stack/librechat.yaml) declares the `clickhouse-prod` MCP server; [`stack/librechat.env.example`](stack/librechat.env.example) has the rest; the agent itself — model, tools and full system prompt — is exported to [`stack/agents/`](stack/agents/) | Its own MongoDB (conversations, the agent definition) | The *InMobi Analytics* agent queries `inmobi.*` through the official ClickHouse MCP server as `mcp_agent`, read-only — the same rollups the engine reads |
+| **ClickHouse MCP** | `mcp-clickhouse-prod` in [`stack/docker-compose.yml`](stack/docker-compose.yml) | — (read path only) | The bridge between the agent and ClickHouse. `mcp_agent` is verified unable to write: `DROP TABLE` returns `Code: 497 … Not enough privileges` |
+
+
+### Seen live
+
+The guidelines are explicit that a screenshot is not proof of integration — each of
+these is walked through in the demo video, and the first three are reachable with the
+logins above while the VM is up.
+
+**Langfuse** — the `localize` stage expanded, showing `ruled_out` with each dimension's
+verdict, excess share and full reason. Not a trace screenshot; a trace screenshot *of
+the branches we cleared*.
+
+![Langfuse trace, localize expanded on ruled_out](docs/img/langfuse-trace.png)
+
+**LibreChat + ClickHouse MCP** — the agent asked *"which segment caused the 06-21
+drop?"*, answering **"No segment caused it — that's the finding"**, with three tool
+calls against `clickhouse-prod` visible. An independent implementation reaching our
+engine's conclusion by a different route.
+
+![LibreChat agent answering: no segment caused it](docs/img/librechat-none.png)
+
+Its full system prompt is committed verbatim at
+[`stack/agents/inmobi-analytics.md`](stack/agents/inmobi-analytics.md) — exported from the
+running instance, not transcribed.
+
+**ClickStack / HyperDX** — the *Ad Metrics — Anomalies* dashboard charting
+`inmobi.events_hourly_by_dim` directly, across both datasets. Three dips are visible
+in one chart without any of our engine's reasoning in between: Android 15 collapsing
+06-23 → 06-25 while seven other OS versions hold flat, iOS 18.1 sagging 06-28 → 06-30,
+and the July movement in the unseen slice. The anomalies as raw shapes.
+
+![HyperDX dashboard — fill rate by OS version across both datasets, with the anomaly summary panel above](docs/img/hyperdx-dip.png)
+
+### Reading the traces without a login
+
+Langfuse's own share links are unauthenticated URLs on the same host, so they are no use once the VM is shut down.
 
 Every trace is therefore **exported and committed** — `artifacts/traces/<id>.json` is the full export (every span, input, output, timing) and `<id>.md` is a readable stage-by-stage summary. That is the same object the Langfuse UI renders. Regenerate with `scripts/export_trace.py`.
 
@@ -208,10 +353,35 @@ Every trace is therefore **exported and committed** — `artifacts/traces/<id>.j
 
 Everything is env-driven — point `.env` at your own ClickHouse and the pipeline runs unchanged. Langfuse and OTel are optional: absent their variables the tracer degrades to a no-op and the investigation proceeds normally. The agent layer is the reference compose from [ClickHouse/agentic-data-stack](https://github.com/ClickHouse/agentic-data-stack), with the ClickHouse MCP server pointed at a read-only user.
 
+## Does it work in real time?
+
+Yes, and it needed no new maths — full detail in **[PRODUCTION.md](PRODUCTION.md)**.
+
+The materialized views are insert triggers: they fire on every `INSERT` regardless of
+source — Kafka, ClickPipes, an HTTP POST from an edge collector — so the rollups stay
+current with no batch job and no cron. Nothing downstream knows or cares whether a row
+arrived a month ago or four seconds ago. And because no statistic is materialized,
+there is nothing to drift or rebuild. One pass over a 48-hour window is ~1.2 s, so a
+60-second poll is under 5% duty cycle. `./investigate.sh --watch 60` is the same
+engine on a loop, with alert dedup so a three-day incident pages once, not 72 times.
+
+**The one bug that only streaming produces**, and which batch testing structurally
+cannot surface: under continuous ingestion the newest hour is always incomplete. Run
+at 14:30 and hour 14 holds thirty minutes of traffic — against a full-hour baseline
+that reads as a **~50% collapse, on every run, forever**. The arithmetic is correct,
+the baseline is correct, the comparison is invalid. It never appears in testing
+because the provided datasets end on complete hours, and it would appear within
+minutes of going live. Fixed: an inferred window stops one hour short, because in an
+append-only stream an hour is only provably complete once a later hour exists.
+
+Not built, and listed honestly in [PRODUCTION.md](PRODUCTION.md) §4: incident state
+that survives restarts, backfill-aware baselines for late-arriving events, per-tenant
+isolation, and alert routing.
+
 ## Honest limitations
 
 - **Compound scanning is the bottleneck.** It reads raw `ad_events` and accounts for 99.6% of all rows read and 88% of query time. At 100× that is ~93 billion rows per run and not viable. The fix is a materialized pair rollup (~33,600 rows for `os_version × region`) — we did not build it.
-- **Thresholds are judgment calls** anchored to measurements on one dataset. [`METHOD.md`](METHOD.md) §5 lists every one with what motivated it and how it fails. We ran no sensitivity sweep.
+- **Thresholds are judgment calls** anchored to measurements on one dataset. [`METHOD.md`](METHOD.md) #5 lists every one with what motivated it and how it fails. We ran no sensitivity sweep.
 - **A correlated dimension can still be named responsible** — `region = EU` is flagged alongside Android 15 because Android 15 skews European. It is a reflection, not a second cause. The UI shows it with that caveat rather than hiding it.
 - **Compound search is pairs, not triples.**
 - **We see the shape of a change, not the system that caused it.** We say what the evidence is consistent with and name the specific thing a human should check.
