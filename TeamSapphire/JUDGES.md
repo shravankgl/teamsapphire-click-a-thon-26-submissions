@@ -60,10 +60,14 @@ object the Langfuse UI renders.
 
 ## LibreChat — the conversational layer
 
-**<http://35.200.218.190:3080>** · `judge@clickathon.io` / `Judge2026Review`
+**<http://35.200.218.190:3080>** · `shravan@bytebeam.io` / `Clickathon2026Review`
 
 Open the **InMobi Analytics** agent. It queries the same ClickHouse tables through
 the official ClickHouse MCP server, read-only.
+
+This is the account that owns the agent and the **7 saved conversations**, so the
+sidebar already holds the exchanges below — you can read what the agent actually
+answered without asking anything, or ask your own.
 
 Questions worth asking, with the answers we already know from the engine:
 
@@ -73,7 +77,9 @@ Questions worth asking, with the answers we already know from the engine:
 | *Which segment caused the drop on 2026-06-21?* | **None.** The drop is uniform across all nine dimensions — the honest answer, and the one most systems get wrong by naming the largest segment |
 | *Did fill rate drop for any specific combination of OS version and region?* | `iOS 18.1 × APAC`, −50.6% on 06-28, while APAC alone is −2.3% and iOS 18.1 alone −12.3% |
 
-Registration is disabled, so this account is the only way in.
+Registration is disabled, so this account is the only way in. It carries admin
+role because it is the original owner of the agent — please treat it as read-only;
+nothing here needs changing to evaluate the work.
 
 ---
 
