@@ -103,15 +103,76 @@ Rest of the stack: **Python** for orchestration and one division on already-aggr
 
 ## How to run it
 
-See **[RUN.md](RUN.md)** — env vars, ClickHouse connection, and one command end to end.
+Prerequisites: Python 3.11+, a ClickHouse endpoint, and an Anthropic API key — the key is needed **only** for narration; everything else runs without it and the structured diagnosis is complete either way.
+
+**1. Install.** The `[async]` extra is not optional — plain `clickhouse-connect` imports fine and then throws at API startup.
 
 ```bash
-./investigate.sh                     # investigate what's loaded
-./investigate.sh path/to/data-dir    # load a new slice first, then investigate
-./investigate.sh --watch 60          # the same engine on a loop
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
 ```
 
-Non-zero exit if anything fails **or if a narrated number cannot be traced back to computed evidence**. The harness refuses to hand you a diagnosis it cannot substantiate.
+**2. Configure.** Copy the template and fill it in. Nothing is hardcoded, so one `.env` change moves the system between ClickHouse Cloud and a local server.
+
+```bash
+cp .env.example .env
+```
+
+| Variable | | Required |
+|---|---|---|
+| `CLICKHOUSE_HOST` | host only, no scheme | yes |
+| `CLICKHOUSE_PORT` / `CLICKHOUSE_SECURE` | `8443` / `true` for Cloud | yes |
+| `CLICKHOUSE_DATABASE` | `inmobi` | yes |
+| `CLICKHOUSE_USER` / `CLICKHOUSE_PASSWORD` | `SELECT` + `dictGet` to investigate | yes |
+| `CLICKHOUSE_ADMIN_USER` / `CLICKHOUSE_ADMIN_PASSWORD` | needed only to create schema and load | for setup |
+| `ANTHROPIC_API_KEY` | narration only — omit and use `--no-narrate` | no |
+| `LANGFUSE_HOST` / `LANGFUSE_PUBLIC_KEY` / `LANGFUSE_SECRET_KEY` | stage tracing; absent → tracer is a no-op | no |
+
+**3. Create the schema.** Order matters — the rollup views resolve dimensions through the dictionaries at insert time.
+
+```bash
+.venv/bin/python scripts/ch.py run-file sql/01_dictionaries.sql
+.venv/bin/python scripts/ch.py run-file sql/02_rollups.sql
+```
+
+**4. Load a dataset.** The loader validates the shape and refuses a window that overlaps data already present, since double-counted hours corrupt every baseline.
+
+```bash
+.venv/bin/python scripts/load.py /path/to/dataset-dir
+.venv/bin/python scripts/backfill.py --verify     # if raw was populated before the views existed
+```
+
+**5. Investigate — the one command.**
+
+```bash
+./investigate.sh                                    # the data already loaded
+./investigate.sh /path/to/new-data-dir              # load that slice first, then investigate
+./investigate.sh --start "2026-07-06 00:00:00" \
+                 --end   "2026-07-10 22:00:00"      # an explicit window
+./investigate.sh --watch 60                         # the same engine on a loop
+./investigate.sh --no-narrate                       # skip the LLM entirely
+```
+
+Writes `out/diagnosis.md`, `out/diagnosis.json` and a trace URL. **Exit code 0 means every narrated number was traced back to computed evidence** — a non-zero exit means one could not be, and that output should never be shipped.
+
+Without `--start`/`--end` the window is inferred from the newest data and deliberately stops one hour short of it: under continuous ingestion the newest hour is always partial, and against a full-hour baseline that reads as a ~50% collapse on every run.
+
+**6. Artifacts and traces.**
+
+```bash
+.venv/bin/python scripts/build_artifacts.py out/diagnosis.json artifacts/
+.venv/bin/python scripts/export_trace.py    out/diagnosis.json artifacts/traces/
+```
+
+**7. API and UI (optional).** The API reads `out/diagnosis.json` once at startup, so restart it after a fresh run.
+
+```bash
+./dev.sh          # API on :8010, incident view on :3100
+```
+
+**Tests:** `.venv/bin/python -m pytest tests/ -v` — 15 integration tests against the real database, skipping cleanly if it is unreachable.
+
+[RUN.md](RUN.md) has the longer reference: per-stage runners, the OSS service map, and how to read the traces without access to our network.
 
 ## Honest limitations
 
